@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
     [SerializeField] GameObject menuButton;
+    [SerializeField] GameObject sensivilityMenuX;
+    [SerializeField] GameObject sensivilityMenuY;
+    [SerializeField] GameObject ImageMenu;
     public bool hasRecipeBook;
     public bool menuPressed;
     public int enemyCount;
@@ -51,8 +54,12 @@ public class GameManager : MonoBehaviour
         {
             menuPressed = !menuPressed;
             menuButton.SetActive(menuPressed);
+            sensivilityMenuX.SetActive(menuPressed);
+            sensivilityMenuY.SetActive(menuPressed);
+            ImageMenu.SetActive(menuPressed);   
             if (menuPressed)
             {
+                Time.timeScale = 0; 
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
@@ -60,6 +67,7 @@ public class GameManager : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                Time.timeScale = 1; 
             }
         }
 

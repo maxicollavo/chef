@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCam : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerCam : MonoBehaviour
 
     float xRotation;
     float yRotation;
+    public Slider SliderX;
+    public Slider SliderY;
 
     private bool isMouseActive = true;
 
@@ -29,6 +32,8 @@ public class PlayerCam : MonoBehaviour
 
     private void LateUpdate()
     {
+        sensX = SliderX.value;
+        sensY = SliderY.value;
         if (TopDownCameraChange.changeCam || !isMouseActive) { return; }
 
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
