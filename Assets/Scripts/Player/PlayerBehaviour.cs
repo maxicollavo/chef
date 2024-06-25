@@ -321,13 +321,13 @@ public class PlayerBehaviour : MonoBehaviour
     private void TransitionCamBack(Camera cam)
     {
         isTransitioning = true;
-        Camera.main.transform.position = Vector3.Lerp(
+        mixCam.transform.position = Vector3.Lerp(
             cam.transform.position,
             initialPos,
             Time.deltaTime * 1f
         );
 
-        if (Vector3.Distance(Camera.main.transform.position, mixCam.transform.position) < 0.5f)
+        if (Vector3.Distance(mixCam.transform.position, mixCam.transform.position) < 0.5f)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

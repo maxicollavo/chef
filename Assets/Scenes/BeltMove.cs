@@ -8,10 +8,8 @@ public class BeltMove : MonoBehaviour
     public Vector3 Dir = new Vector3(1, 0, 0);
     public List<GameObject> OnBelts;
     public bool IsMoving = false;
-
     void Update()
     {
-
         if (IsMoving) Moving();
 
         if (IsMoving == false)
