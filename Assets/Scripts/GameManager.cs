@@ -7,10 +7,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set;}
-    [SerializeField] GameObject menuButton;
-    [SerializeField] GameObject sensivilityMenuX;
-    [SerializeField] GameObject sensivilityMenuY;
-    [SerializeField] GameObject ImageMenu;
+    [SerializeField] GameObject pauseMenu;
     public bool hasRecipeBook;
     public bool menuPressed;
     public int enemyCount;
@@ -52,11 +49,9 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            canAttack = !canAttack;
             menuPressed = !menuPressed;
-            menuButton.SetActive(menuPressed);
-            sensivilityMenuX.SetActive(menuPressed);
-            sensivilityMenuY.SetActive(menuPressed);
-            ImageMenu.SetActive(menuPressed);   
+            pauseMenu.SetActive(menuPressed);
             if (menuPressed)
             {
                 Time.timeScale = 0; 
