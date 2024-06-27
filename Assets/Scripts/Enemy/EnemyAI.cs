@@ -101,12 +101,13 @@ public class EnemyAI : MonoBehaviour
         Vector3 directionToPlayer = (target.transform.position - transform.position);
         GameObject enemyBulletInstance = enemyPoolBullet.GetObject();
         enemyBulletInstance.transform.position = transform.position; //ERROR: este transform.position cambiarlo por el arma cuando el enemigo tenga brazos
+        enemyBulletInstance.transform.forward = directionToPlayer; //ERROR: este transform.position cambiarlo por el arma cuando el enemigo tenga brazos
         enemyBulletObjects.Add(enemyBulletInstance);
 
-        var _rb = enemyBulletInstance.GetComponent<Rigidbody>();
-        _rb.velocity = Vector3.zero;
-        _rb.AddForce(target.transform.position * bulletSpeed, ForceMode.Impulse);
-        _rb.AddForce(directionToPlayer * 3f, ForceMode.Impulse);
+       // var _rb = enemyBulletInstance.GetComponent<Rigidbody>();
+       // _rb.velocity = Vector3.zero;
+       // //_rb.AddForce(target.transform.position * bulletSpeed, ForceMode.Impulse);
+       // _rb.AddForce(directionToPlayer.normalized * bulletSpeed, ForceMode.Impulse);
     }
 
     void Shoot()

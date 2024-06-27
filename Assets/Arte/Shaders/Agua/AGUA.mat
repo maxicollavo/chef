@@ -117,6 +117,7 @@ Material:
     - _EspumaDeLaOrilla: 0
     - _EspumaFallOFF: 0
     - _EspumaTiling: 6.33
+    - _Float: 2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -137,10 +138,10 @@ Material:
     - _profundidaEspuma: -1.05
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.7254902, g: 0.32887167, b: 0.28235295, a: 0}
-    - _Color2: {r: 0.9339623, g: 0.5018289, b: 0.10044494, a: 0}
-    - _ColorEspuma: {r: 0.4339623, g: 0.24711238, b: 0.1776789, a: 0}
+    - _Color: {r: 0.6698113, g: 0.20172083, b: 0, a: 1}
+    - _Color1: {r: 0.6792453, g: 0.4799188, b: 0.008971129, a: 0}
+    - _Color2: {r: 0.7264151, g: 0.45132333, b: 0.17406547, a: 0}
+    - _ColorEspuma: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EspumaVelocidad: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

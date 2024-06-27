@@ -3,17 +3,21 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEditor.PackageManager;
 
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField]
     private Camera mixCam;
+    private Camera mainCam;
     private Vector3 initialPos;
     private bool isTransitioning;
     public bool checkpoint;
 
     [SerializeField]
     Transform startSpawn;
+
+    public Transform PostitionCamMiniGame;
 
     [SerializeField]
     Transform checkpointSpawn;
@@ -61,7 +65,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+        mainCam = Camera.main;
         EventManager.Instance.Register(GameEventTypes.OnReceiveDamage, OnReceiveDamage);
         EventManager.Instance.Register(GameEventTypes.OnGainHealth, OnGainHealth);
         EventManager.Instance.Register(GameEventTypes.OnAbility, OnAbility);
@@ -285,11 +289,11 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void EnableCamera(Camera cam)
-    {
-        Camera.main.gameObject.SetActive(false);
-        cam.gameObject.SetActive(true);
-    }
+  // private void EnableCamera(Camera cam)
+  // {
+  //     Camera.main.gameObject.SetActive(false);
+  //     cam.gameObject.SetActive(true);
+  // }
 
     private void DisableCamera(Camera cam)
     {
@@ -299,42 +303,40 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void TransitionCam(Camera cam)
     {
-        initialPos = Camera.main.transform.position;
-
-        GameManager.Instance.onMinigame = true;
-        isTransitioning = true;
-        Camera.main.transform.position = Vector3.Lerp(
-            Camera.main.transform.position,
-            mixCam.transform.position,
-            Time.deltaTime * 1f
-        );
-
-        if (Vector3.Distance(Camera.main.transform.position, mixCam.transform.position) < 0.5f)
+        if (GameManager.Instance.onMinigame == false && isTransitioning == false)
         {
+            MixCamTrans.Instance.TransitionActive(PostitionCamMiniGame, mixCam.gameObject, mainCam.gameObject);
+            Debug.LogError("Active");
+
+            GameManager.Instance.onMinigame = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            isTransitioning = false;
-            EnableCamera(cam);
-        }
-    }
 
-    private void TransitionCamBack(Camera cam)
+            StartCoroutine(Delay());
+           // EnableCamera(cam);
+        }
+     
+    }
+    public IEnumerator Delay()
     {
         isTransitioning = true;
-        mixCam.transform.position = Vector3.Lerp(
-            cam.transform.position,
-            initialPos,
-            Time.deltaTime * 1f
-        );
-
-        if (Vector3.Distance(mixCam.transform.position, mixCam.transform.position) < 0.5f)
+        yield return new WaitForSeconds(1);
+        isTransitioning = false;
+    }
+    private void TransitionCamBack(Camera cam)
+    {
+        if (GameManager.Instance.onMinigame == true && isTransitioning == false)
         {
+            MixCamTrans.Instance.TransitionActive(mainCam.transform, mainCam.gameObject, mixCam.gameObject);
+
+            Debug.LogError("Back");
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             GameManager.Instance.onMinigame = false;
-            isTransitioning = false;
-            DisableCamera(cam);
+            StartCoroutine (Delay());
+           // DisableCamera(cam);
         }
+      
     }
 
     private void SpeedBoost()

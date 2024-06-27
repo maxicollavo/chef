@@ -5,6 +5,7 @@ public class HotDogBullet : MonoBehaviour
     private int hotDogDmg = 5;
     [SerializeField] AudioSource bonk;
     private float timer;
+    public float Speed = 10;
 
     public EnemyAI eai { get; set; }
 
@@ -21,6 +22,8 @@ public class HotDogBullet : MonoBehaviour
         {
             eai.ReturnBullet(gameObject);
         }
+
+        transform.position += transform.forward * Speed * Time.deltaTime;
     }
 
     public void OnTriggerEnter(Collider other)
