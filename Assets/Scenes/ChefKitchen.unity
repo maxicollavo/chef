@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.3807401, b: 0.358727, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25800,14 +25800,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1240644676}
   moveSpeed: 0
-  walkSpeed: 6
-  sprintSpeed: 8
+  walkSpeed: 7.5
+  sprintSpeed: 9
   slidingSpeed: 2
-  crouchSpeed: 4
+  crouchSpeed: 3.75
   groundDrag: 5
-  jumpForce: 12.5
+  jumpForce: 15
   jumpCooldown: 0.1
-  airMultiplier: 0.4
+  airMultiplier: 0.8
   isSlowed: 0
   counter: 0
   playerCapsule: {fileID: 1050977012}
