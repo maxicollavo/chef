@@ -9,6 +9,8 @@ public class GunSwitching : MonoBehaviour
 
     [SerializeField] private AudioSource knife;
     [SerializeField] private AudioSource spoon;
+    [SerializeField] private AudioSource shotgun;
+    [SerializeField] private AudioSource grenade;
 
     void Update()
     {
@@ -32,14 +34,14 @@ public class GunSwitching : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.Alpha3)) && transform.childCount >= 3)
             {
                 selectedGun = 2;
-                // if (previousSelectedGun != selectedGun) 
-                    // spoon.Play();
+                if (previousSelectedGun != selectedGun) 
+                    shotgun.Play();
             }
             if ((Input.GetKeyDown(KeyCode.Alpha4)) && transform.childCount >= 4)
             {
                 selectedGun = 3;
-                // if (previousSelectedGun != selectedGun) 
-                    // spoon.Play();
+                if (previousSelectedGun != selectedGun) 
+                    grenade.Play();
             }
 
                 if (previousSelectedGun != selectedGun)
