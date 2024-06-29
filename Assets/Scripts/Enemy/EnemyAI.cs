@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour
         maxEnemyBullet = 3;
         var index = Random.Range(0, 11);
         enemyPoolBullet = new Pool<GameObject>(CreateBullet, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxEnemyBullet);
-       // Next_Point = Waypoints[index].position;
+        // Next_Point = Waypoints[index].position;
         agent.SetDestination(Next_Point);
         agent.transform.rotation = Quaternion.identity;
 
@@ -104,13 +104,13 @@ public class EnemyAI : MonoBehaviour
         enemyBulletInstance.transform.forward = directionToPlayer; //ERROR: este transform.position cambiarlo por el arma cuando el enemigo tenga brazos
         enemyBulletObjects.Add(enemyBulletInstance);
 
-       // var _rb = enemyBulletInstance.GetComponent<Rigidbody>();
-       // _rb.velocity = Vector3.zero;
-       // //_rb.AddForce(target.transform.position * bulletSpeed, ForceMode.Impulse);
-       // _rb.AddForce(directionToPlayer.normalized * bulletSpeed, ForceMode.Impulse);
+        // var _rb = enemyBulletInstance.GetComponent<Rigidbody>();
+        // _rb.velocity = Vector3.zero;
+        // //_rb.AddForce(target.transform.position * bulletSpeed, ForceMode.Impulse);
+        // _rb.AddForce(directionToPlayer.normalized * bulletSpeed, ForceMode.Impulse);
     }
 
-    void Shoot()
+    public virtual void Shoot()
     {
         if (cooldownTimer <= 0f)
         {
@@ -133,55 +133,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
-              currentWaypointIndex = UnityEngine.Random.Range(0,Waypoints.Count);
+            currentWaypointIndex = UnityEngine.Random.Range(0, Waypoints.Count);
             //currentWaypointIndex = (currentWaypointIndex + 1) % Waypoints.Count;
             agent.SetDestination(Waypoints[currentWaypointIndex].position);
-            
+
         }
-            //var index = UnityEngine.Random.Range(0, 3);
-            //Next_Point = Waypoints[index].position;
-            //agent.SetDestination(Next_Point);
-      //if (Next_Point != null)
-      //{
-      //    var index = UnityEngine.Random.Range(0, Waypoints.Count);
-      //    Next_Point = Waypoints[index].position;
-      //    agent.SetDestination(Next_Point);
-      //}
-        //
-        // if (Vector3.Distance(transform.position, Next_Point) <= 1.5f)
-        // {
-        //     var index = UnityEngine.Random.Range(0, Waypoints.Count);
-        //     Next_Point = Waypoints[index].position;
-        //     agent.SetDestination(Next_Point);
-        // }
-        //if (!walkPointSet)
-        //{
-        //    SearchWalkPoint();
-        //}
-        //
-        //if (walkPointSet)
-        //{
-        //    agent.SetDestination(walkPoint);
-        //}
-        //
-        //Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        //
-        //if (distanceToWalkPoint.magnitude < 5f)
-        //    walkPointSet = false;
+        
     }
-
-    private void SearchWalkPoint()
-    {
-       // float randomZ = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
-       // float randomX = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
-       //
-       // walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-       //
-       //
-       // if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-       //     walkPointSet = true;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerCollider"))
@@ -194,7 +152,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.enabled = true;
         agent.speed = 5f;
-        agent.SetDestination(target.transform.position);    
+        agent.SetDestination(target.transform.position);
     }
     private void OnTriggerExit(Collider other)
     {
