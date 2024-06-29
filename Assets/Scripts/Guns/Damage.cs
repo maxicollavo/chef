@@ -6,6 +6,7 @@ public class Damage : MonoBehaviour
     [SerializeField] AudioSource damageSound;
     public SpoonBehaviour sb { get; set; }
     public ShotGunBehaviour sg { get; set; }
+    public GranadeBehaviour gb { get; set; }
 
     private float timer;
 
@@ -20,8 +21,12 @@ public class Damage : MonoBehaviour
 
         if (timer >= 1f)
         {
+            if(sb != null)
             sb.ReturnBullet(gameObject);
+            if(sg != null)
             sg.ReturnBullet(gameObject);
+            if(gb != null)
+            gb.ReturnBullet(gameObject);
         }
     }
 
@@ -36,8 +41,12 @@ public class Damage : MonoBehaviour
                 damageSound.Play();
                 enemyBeh.TakeDamage(damage);
 
+                if(sb != null)
                 sb.ReturnBullet(gameObject);
-                sg.ReturnBullet(gameObject);    
+                if(sg != null)
+                sg.ReturnBullet(gameObject);
+                if(gb != null)
+                gb.ReturnBullet(gameObject);
             }
         }
     }

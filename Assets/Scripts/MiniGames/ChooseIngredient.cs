@@ -40,7 +40,6 @@ public class ChooseIngredient : MonoBehaviour
         if (component != null)
         {
             Animator anim = component.transform.parent.GetComponent<Animator>();
-            Debug.Log(anim);
             if (anim != null)
             {
                 anim.SetTrigger("OnAction");
