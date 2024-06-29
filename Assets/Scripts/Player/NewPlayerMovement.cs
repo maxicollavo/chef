@@ -12,7 +12,6 @@ public class NewPlayerMovement : MonoBehaviour
     public float sprintSpeed;
     public float slidingSpeed;
     public float crouchSpeed;
-    public float jumpSpeed;
 
     public float groundDrag;
 
@@ -174,7 +173,7 @@ public class NewPlayerMovement : MonoBehaviour
         else
         {
             state = MovementState.jumping;
-            moveSpeed = (walkSpeed + sprintSpeed) / jumpSpeed;
+            moveSpeed = (walkSpeed + sprintSpeed) / 2;
         }
     }
 
