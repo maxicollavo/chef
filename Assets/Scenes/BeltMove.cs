@@ -15,18 +15,19 @@ public class BeltMove : MonoBehaviour
         if (IsMoving == false)
         {
             Moving();
-
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         OnBelts.Add(collision.gameObject);
+        NewPlayerMovement.Instance.onBelts = true;
     }
 
     private void OnCollisionExit(Collision collision)
     {
         OnBelts.Remove(collision.gameObject);
+        NewPlayerMovement.Instance.onBelts = false;
     }
 
     public void Moving()

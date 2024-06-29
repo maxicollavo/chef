@@ -21,6 +21,7 @@ public class NewPlayerMovement : MonoBehaviour
     bool readyToJump;
 
     public bool isSlowed;
+    public bool onBelts;
 
     public float counter;
 
@@ -133,7 +134,7 @@ public class NewPlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(jumpKey) && readyToJump && grounded && !isSliding)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && !isSliding && !onBelts)
         {
             readyToJump = false;
 
