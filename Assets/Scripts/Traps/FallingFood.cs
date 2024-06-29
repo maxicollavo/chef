@@ -11,7 +11,8 @@ public class FallingFood : MonoBehaviour
     private List<GameObject> fruitObjects = new List<GameObject>();
 
     bool isSpawned;
-    int maxFruits;
+    public int maxFruits;
+    public float timeToRestart;
     int fruitCount;
     private float fruitTimeCount;
     private float timeToStart;
@@ -25,7 +26,6 @@ public class FallingFood : MonoBehaviour
     private void Start()
     {
         fruitCount = 0;
-        maxFruits = 1;
 
         poolFruit = new Pool<GameObject>(CreateFruit, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxFruits);
 
@@ -64,7 +64,7 @@ public class FallingFood : MonoBehaviour
     {
         fruitTimeCount += Time.deltaTime;
 
-        if (fruitTimeCount >= 2)
+        if (fruitTimeCount >= timeToRestart)
         {
             isSpawned = false;
             ResetPool();

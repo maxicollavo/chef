@@ -21,13 +21,15 @@ public class BeltMove : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         OnBelts.Add(collision.gameObject);
-        NewPlayerMovement.Instance.onBelts = true;
+        if (collision.gameObject.CompareTag("PlayerBody"))
+            NewPlayerMovement.Instance.onBelts = true;
     }
 
     private void OnCollisionExit(Collision collision)
     {
         OnBelts.Remove(collision.gameObject);
-        NewPlayerMovement.Instance.onBelts = false;
+        if (collision.gameObject.CompareTag("PlayerBody"))
+            NewPlayerMovement.Instance.onBelts = false;
     }
 
     public void Moving()
@@ -37,6 +39,7 @@ public class BeltMove : MonoBehaviour
             OnBelts[i].GetComponent<Rigidbody>().velocity = speed * Dir * Time.deltaTime;
         }
     }
+    
     public void NegativeMove()
     {
         if (Input.GetKey(KeyCode.Space))
