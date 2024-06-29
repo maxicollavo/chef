@@ -5,7 +5,7 @@ public class Damage : MonoBehaviour
     private int damage = 20;
     [SerializeField] AudioSource damageSound;
     public SpoonBehaviour sb { get; set; }
-    public ShotGunBehaviour sg { get; set; }
+    public ShotgunBehaviour sg { get; set; }
     public GranadeBehaviour gb { get; set; }
 
     private float timer;
@@ -25,8 +25,6 @@ public class Damage : MonoBehaviour
             sb.ReturnBullet(gameObject);
             if(sg != null)
             sg.ReturnBullet(gameObject);
-            if(gb != null)
-            gb.ReturnBullet(gameObject);
         }
     }
 
@@ -45,8 +43,6 @@ public class Damage : MonoBehaviour
                 sb.ReturnBullet(gameObject);
                 if(sg != null)
                 sg.ReturnBullet(gameObject);
-                if(gb != null)
-                gb.ReturnBullet(gameObject);
             }
         }
     }

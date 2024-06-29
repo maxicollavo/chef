@@ -1,24 +1,26 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotGunBehaviour : MonoBehaviour
+public class ShotgunBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     Pool<GameObject> poolBullet;
     private List<GameObject> bulletObjects = new List<GameObject>();
     private int maxBullet;
     [SerializeField] private Transform bulletPoint;
+    [SerializeField] private Transform bulletPoint2;
+    [SerializeField] private Transform bulletPoint3;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private AudioSource bulletSource;
-    [SerializeField] private Animator ShotgunAnimator;
+    [SerializeField] private Animator spoonAnimator;
     [SerializeField] private Transform camTarget;
 
     private bool isShooting;
-    private float shootCooldown = 1f;
+    private float shootCooldown = 3f;
     private float currentCooldown = 0f;
 
-    public static ShotGunBehaviour Instance { get; private set; }
+    public static ShotgunBehaviour Instance { get; private set; }
 
     void Awake()
     {
@@ -28,7 +30,7 @@ public class ShotGunBehaviour : MonoBehaviour
 
     void Start()
     {
-        maxBullet = 5;
+        maxBullet = 9;
 
         poolBullet = new Pool<GameObject>(CreateBullet, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxBullet);
     }
@@ -65,16 +67,22 @@ public class ShotGunBehaviour : MonoBehaviour
         bulletObjects.ForEach((gameObject) => ReturnBullet(gameObject));
     }
 
-    void InstantiateBullet()
+    void InstantiateBullet(Transform point)
     {
         GameObject bulletInstance = poolBullet.GetObject();
-        bulletInstance.transform.position = bulletPoint.position;
-        bulletObjects.Add(bulletInstance);
+    bulletInstance.transform.position = point.position;
+    bulletObjects.Add(bulletInstance);
 
-        Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
+    Rigidbody rb = bulletInstance.GetComponent<Rigidbody>();
+    rb.velocity = Vector3.zero;
 
-        rb.AddForce(camTarget.forward * bulletSpeed, ForceMode.Force);
+    Vector3 shootDirection = camTarget.forward;
+    shootDirection.x += UnityEngine.Random.Range(-0.1f, 0.1f);
+    shootDirection.y += UnityEngine.Random.Range(-0.1f, 0.1f);
+    shootDirection.z += UnityEngine.Random.Range(-0.1f, 0.1f);
+    shootDirection.Normalize();
+
+    rb.AddForce(shootDirection * bulletSpeed, ForceMode.Force);
     }
 
     public void Shoot()
@@ -82,8 +90,10 @@ public class ShotGunBehaviour : MonoBehaviour
         if (GameManager.Instance.canAttack)
         {
             GameManager.Instance.canAttack = false;
-            ShotgunAnimator.SetTrigger("OnAction");
-            InstantiateBullet();
+            spoonAnimator.SetTrigger("OnAction");
+            InstantiateBullet(bulletPoint);
+            InstantiateBullet(bulletPoint2);
+            InstantiateBullet(bulletPoint3);
             bulletSource.Play();
             currentCooldown = shootCooldown;
         }

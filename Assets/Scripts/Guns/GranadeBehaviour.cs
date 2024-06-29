@@ -47,7 +47,7 @@ public class GranadeBehaviour : MonoBehaviour
     private GameObject CreateBullet()
     {
         var granade = Instantiate(granadePrefab);
-        granade.GetComponent<Damage>().gb = this;
+        granade.GetComponent<GranadeDamage>().gb = this;
 
         return granade;
     }

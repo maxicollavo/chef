@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5597281722383567383}
   - component: {fileID: 3523838470670999236}
   - component: {fileID: 6052430514734429895}
-  - component: {fileID: 4450616207811760362}
+  - component: {fileID: 8528815282616007812}
   - component: {fileID: 1666228687443306276}
   m_Layer: 0
   m_Name: Granade
@@ -135,7 +135,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4450616207811760362
+--- !u!114 &8528815282616007812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 713850840632249405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa328435dfcc1bd43ac0164f5783a136, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b435c1fde40845b4bc333222adae6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageSound: {fileID: 1666228687443306276}
