@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.3807401, b: 0.358727, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11500,12 +11500,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 713850840632249405, guid: 0a4516403c2833a41ab766d6f3d6e4a5, type: 3}
   bulletPoint: {fileID: 1224890881}
+  bulletSpeed: 1000
+  camTarget: {fileID: 55066789}
   bulletPoint2: {fileID: 2101737539}
   bulletPoint3: {fileID: 1236230365}
-  bulletSpeed: 1000
   bulletSource: {fileID: 556299414}
-  spoonAnimator: {fileID: 556299416}
-  camTarget: {fileID: 55066789}
+  shotgunAnimator: {fileID: 0}
 --- !u!1 &561631986
 GameObject:
   m_ObjectHideFlags: 0
@@ -11768,7 +11768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &569949019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34701,9 +34701,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 713850840632249405, guid: 0a4516403c2833a41ab766d6f3d6e4a5, type: 3}
   bulletPoint: {fileID: 1429139263}
   bulletSpeed: 1000
+  camTarget: {fileID: 55066789}
   bulletSource: {fileID: 1178423980}
   spoonAnimator: {fileID: 1178423982}
-  camTarget: {fileID: 55066789}
 --- !u!95 &1178423982
 Animator:
   serializedVersion: 5
@@ -45252,15 +45252,15 @@ PrefabInstance:
       objectReference: {fileID: 240500306}
     - target: {fileID: 4067417343094701166, guid: 91fdae0c0125f13409d059c0f3218bd8, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4067417343094701166, guid: 91fdae0c0125f13409d059c0f3218bd8, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4067417343094701166, guid: 91fdae0c0125f13409d059c0f3218bd8, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4636368561389443747, guid: 91fdae0c0125f13409d059c0f3218bd8, type: 3}
       propertyPath: m_Name
@@ -58617,12 +58617,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d34e9e9968110d45b8534a368cb6111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  granadePrefab: {fileID: 713850840632249405, guid: 0b4972251a491f044968c29b33226774, type: 3}
-  granadePoint: {fileID: 2089792893}
-  granadeSpeed: 17
-  granadeSource: {fileID: 1898443202}
-  spoonAnimator: {fileID: 1898443204}
+  bulletPrefab: {fileID: 0}
+  bulletPoint: {fileID: 0}
+  bulletSpeed: 0
   camTarget: {fileID: 55066789}
+  bulletSource: {fileID: 0}
+  grenadeAnimator: {fileID: 0}
 --- !u!95 &1898443204
 Animator:
   serializedVersion: 5
