@@ -17,6 +17,10 @@ public class GunInternalSwitching : MonoBehaviour
 
     [SerializeField] GameObject rollo1GO;
     [SerializeField] GameObject rollo2GO;
+    
+    [SerializeField] GameObject shotgun1GO;
+    [SerializeField] GameObject shotgun2GO;
+    
     GameObject holdingGun;
 
 
@@ -35,6 +39,9 @@ public class GunInternalSwitching : MonoBehaviour
 
         guns.Add(GunsTypes.Rollo1, rollo1GO);
         guns.Add(GunsTypes.Rollo2, rollo2GO);
+        
+        guns.Add(GunsTypes.ShotGun1, shotgun1GO);
+        guns.Add(GunsTypes.ShotGun2, shotgun2GO);
     }
     public void SetInternalGunActive(GunsTypes type, bool isActive)
     {
@@ -55,5 +62,7 @@ public enum GunsTypes
     Pan1,
     Pan2,
     Rollo1,
-    Rollo2
+    Rollo2,
+    ShotGun1,
+    ShotGun2
 }

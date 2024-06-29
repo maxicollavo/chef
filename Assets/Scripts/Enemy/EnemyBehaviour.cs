@@ -44,6 +44,7 @@ public class EnemyBehaviour : MonoBehaviour
         LifeBar.value = health;
     }
 
+   
     IEnumerator BarOnTakeDamage()
     {
         fillArea.color = Color.red;

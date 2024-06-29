@@ -15,7 +15,7 @@ public class SpoonBehaviour : MonoBehaviour
     [SerializeField] private Transform camTarget;
 
     private bool isShooting;
-    private float shootCooldown = 1f;
+    private float shootCooldown = 3f;
     private float currentCooldown = 0f;
 
     public static SpoonBehaviour Instance { get; private set; }

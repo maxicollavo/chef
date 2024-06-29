@@ -29,8 +29,14 @@ public class GunSwitching : MonoBehaviour
                 if (previousSelectedGun != selectedGun)
                     spoon.Play();
             }
+            if ((Input.GetKeyDown(KeyCode.Alpha3)) && transform.childCount >= 2)
+            {
+                selectedGun = 2;
+                if (previousSelectedGun != selectedGun) 
+                    spoon.Play();
+            }
 
-            if (previousSelectedGun != selectedGun)
+                if (previousSelectedGun != selectedGun)
                 SelectGun();
         }
     }
