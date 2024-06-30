@@ -25,18 +25,19 @@ public class HealthPowerUp : MonoBehaviour
     {
         if (other.CompareTag("PlayerCollider"))
         {
-            PlayerBehaviour _pb = other.transform.parent.GetComponent<PlayerBehaviour>();
-
-            if (_pb.health >= 100)
-            {
-                Debug.Log("Se tiene toda la vida");
-            }
-            else
-            {
-                EventManager.Instance.Dispatch(GameEventTypes.OnGainHealth, this, EventArgs.Empty);
-                healingSource.Play();
-                Destroy(gameObject);
-            }
+            // PlayerBehaviour _pb = other.transform.parent.GetComponent<PlayerBehaviour>();
+            //
+            // if (_pb.health >= 100)
+            // {
+            //     Debug.Log("Se tiene toda la vida");
+            // }
+            // else
+            // {
+            //     EventManager.Instance.Dispatch(GameEventTypes.OnGainHealth, this, EventArgs.Empty);
+            //     healingSource.Play();
+            //     Destroy(gameObject);
+            // }
+            Destroy(this.gameObject);
         }
     }
 }
