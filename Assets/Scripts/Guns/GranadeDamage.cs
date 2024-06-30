@@ -4,7 +4,7 @@ public class GranadeDamage : MonoBehaviour
 {
         private int damage = 20;
     [SerializeField] AudioSource damageSound;
-    public GranadeBehaviour gb { get; set; }
+    public GunBehaviour gb { get; set; }
 
     private float timer;
 
