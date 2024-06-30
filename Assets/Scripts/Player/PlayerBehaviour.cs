@@ -9,6 +9,9 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField]
     private Camera mixCam;
+    [SerializeField]
+    private Camera respawnCam;
+    [SerializeField]
     private Camera mainCam;
     private Vector3 initialPos;
     private bool isTransitioning;
@@ -18,6 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
     Transform startSpawn;
 
     public Transform PostitionCamMiniGame;
+    public Transform PostitionCamRespawn;
 
     [SerializeField]
     Transform checkpointSpawn;
@@ -262,8 +266,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (checkpoint)
         {
+            TransitionRespawnCam(respawnCam);   
             transform.position = checkpointSpawn.position;
-        }
+        }   
         else
         {
             transform.position = startSpawn.position;
@@ -278,9 +283,10 @@ public class PlayerBehaviour : MonoBehaviour
         if (health <= 0)
         {
             Death();
+
         }
     }
-
+    
     public void AddHealth(int extraHealth)
     {
         health += extraHealth;
@@ -302,7 +308,7 @@ public class PlayerBehaviour : MonoBehaviour
         Camera.main.gameObject.SetActive(true);
     }
 
-    private void TransitionCam(Camera cam)
+    private void TransitionMixCam(Camera cam)
     {
         if (GameManager.Instance.onMinigame == false && isTransitioning == false)
         {
@@ -317,6 +323,11 @@ public class PlayerBehaviour : MonoBehaviour
            // EnableCamera(cam);
         }
      
+    }
+    private void TransitionRespawnCam(Camera cam)
+    {
+         Debug.Log("Entro a respawn");
+          RespawnCam.Instance.TransitionActive(mainCam.transform, mainCam.gameObject, respawnCam.gameObject);
     }
     public IEnumerator Delay()
     {
@@ -385,7 +396,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 if (!GameManager.Instance.onMinigame)
                 {
-                    TransitionCam(mixCam);
+                    TransitionMixCam(mixCam);
                     crosshair.SetActive(false);
                     GameManager.Instance.onMinigame = true;
                 }
