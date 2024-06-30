@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
 
     [SerializeField] AudioSource bulletSource;
+    [SerializeField] Animator enemy;
 
     [SerializeField] GameObject enemyBulletPrefab;
     Pool<GameObject> enemyPoolBullet;
@@ -42,7 +43,6 @@ public class EnemyAI : MonoBehaviour
         maxEnemyBullet = 3;
         var index = Random.Range(0, 11);
         enemyPoolBullet = new Pool<GameObject>(CreateBullet, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxEnemyBullet);
-        // Next_Point = Waypoints[index].position;
         agent.SetDestination(Next_Point);
         agent.transform.rotation = Quaternion.identity;
 
@@ -103,18 +103,12 @@ public class EnemyAI : MonoBehaviour
         enemyBulletInstance.transform.position = transform.position; //ERROR: este transform.position cambiarlo por el arma cuando el enemigo tenga brazos
         enemyBulletInstance.transform.forward = directionToPlayer; //ERROR: este transform.position cambiarlo por el arma cuando el enemigo tenga brazos
         enemyBulletObjects.Add(enemyBulletInstance);
-
-        // var _rb = enemyBulletInstance.GetComponent<Rigidbody>();
-        // _rb.velocity = Vector3.zero;
-        // //_rb.AddForce(target.transform.position * bulletSpeed, ForceMode.Impulse);
-        // _rb.AddForce(directionToPlayer.normalized * bulletSpeed, ForceMode.Impulse);
     }
 
     public virtual void Shoot()
     {
         if (cooldownTimer <= 0f)
         {
-            //shootAnim.SetBool("OnAction", true);
             bulletSource.Play();
             InstantiateBullet();
             cooldownTimer = shootCooldown;
@@ -125,7 +119,9 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(target);
-
+        enemy.SetBool("OnAttack", true);
+        enemy.SetBool("OnPatrol", false);
+        enemy.SetBool("OnChase", false);
         Shoot();
     }
 
@@ -133,10 +129,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
+            enemy.SetBool("OnPatrol", true);
+            enemy.SetBool("OnChase", false);
+            enemy.SetBool("OnAttack", false);
             currentWaypointIndex = UnityEngine.Random.Range(0, Waypoints.Count);
-            //currentWaypointIndex = (currentWaypointIndex + 1) % Waypoints.Count;
             agent.SetDestination(Waypoints[currentWaypointIndex].position);
-
         }
         
     }
@@ -150,6 +147,9 @@ public class EnemyAI : MonoBehaviour
 
     void Chase()
     {
+        enemy.SetBool("OnChase", true);
+        enemy.SetBool("OnPatrol", false);
+        enemy.SetBool("OnAttack", false);
         agent.enabled = true;
         agent.speed = 5f;
         agent.SetDestination(target.transform.position);
