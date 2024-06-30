@@ -176,6 +176,7 @@ public class NewPlayerMovement : MonoBehaviour
         else if (mag == 0)
         {
             state = MovementState.idle;
+            walkAudio.Play();  
         }
 
         else

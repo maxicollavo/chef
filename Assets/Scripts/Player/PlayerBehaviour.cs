@@ -27,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     public int maxLives;
     public int currentLives;
     public AudioSource DamageSound;
+    public AudioSource SpeedBoostSound;
 
     [SerializeField]
     GameObject miniGameText;
@@ -362,6 +363,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("SpeedBoost"))
         {
             SpeedBoost();
+            SpeedBoostSound.Play();
             Destroy(other.gameObject);
         }
 
