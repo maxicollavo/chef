@@ -10,6 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Slider LifeBar;
     [SerializeField] Image fillArea;
     private WaitForSeconds time = new WaitForSeconds(0.2f);
+    public Animator dieAnimator;
 
     [SerializeField] private GameObject ingredient;
 
@@ -26,6 +27,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        dieAnimator.SetTrigger("OnDie");
         health -= damage;
 
         if (health <= 0)
