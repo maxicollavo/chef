@@ -14,12 +14,29 @@ public class IngredientPickUp : MonoBehaviour
         if (other.CompareTag("PlayerCollider"))
         {
             if (GameManager.Instance.ingredientCount < 10)
+            {
                 GameManager.Instance.ingredientCount += ingredientValue;
+                Destroy(gameObject);
+            }
 
-            if (GameManager.Instance.ingredientCount == 10)
-                ingredientsReached.Play();
-
-            Destroy(gameObject);
+            else if (GameManager.Instance.ingredientCount == 10)
+            {
+                Hide();
+                StartCoroutine(Sound());
+            }
         }
+    }
+
+    private void Hide()
+    {
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        gameObject.GetComponentInChildren<BoxCollider>().enabled = false;
+    }
+
+    private IEnumerator Sound()
+    {
+        ingredientsReached.Play();
+        yield return new WaitUntil(() => !ingredientsReached.isPlaying);
+        Destroy(gameObject);
     }
 }

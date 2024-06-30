@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public Transform target;
+    public GameObject target { private get; set; }
 
     [SerializeField] AudioSource bulletSource;
     [SerializeField] Animator enemy;
@@ -36,6 +36,8 @@ public class EnemyAI : MonoBehaviour
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Target");
+        Debug.Log(target);
     }
 
     void Start()
@@ -118,7 +120,7 @@ public class EnemyAI : MonoBehaviour
     void Attack()
     {
         agent.SetDestination(transform.position);
-        transform.LookAt(target);
+        transform.LookAt(target.transform);
         enemy.SetBool("OnAttack", true);
         enemy.SetBool("OnPatrol", false);
         enemy.SetBool("OnChase", false);

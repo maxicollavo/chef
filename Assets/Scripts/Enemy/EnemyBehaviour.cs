@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -10,13 +11,17 @@ public class EnemyBehaviour : MonoBehaviour
     public Slider LifeBar;
     [SerializeField] Image fillArea;
     private WaitForSeconds time = new WaitForSeconds(0.2f);
-    public Animator dieAnimator;
+    public Animator anim;
 
     [SerializeField] private GameObject ingredient;
+    private EnemyAI ai;
+    private NavMeshAgent nav;
 
     private void Awake()
     {
         fillArea.color = Color.green;
+        ai = GetComponent<EnemyAI>();
+        nav = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
@@ -27,11 +32,13 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        dieAnimator.SetTrigger("OnDie");
         health -= damage;
 
         if (health <= 0)
         {
+            ai.enabled = false;
+            nav.enabled = false;
+            anim.SetTrigger("OnDie");
             EventManager.Instance.Dispatch(GameEventTypes.OnConf, this, EventArgs.Empty);
 
             if (GameManager.Instance.readyToInstantiate)
@@ -39,14 +46,11 @@ public class EnemyBehaviour : MonoBehaviour
                 Instantiate(ingredient, transform.position, transform.rotation);
             }
             GameManager.Instance.enemies.Remove(gameObject);
-            Destroy(gameObject);
         }
-
         StartCoroutine(BarOnTakeDamage());
         LifeBar.value = health;
     }
 
-   
     IEnumerator BarOnTakeDamage()
     {
         fillArea.color = Color.red;

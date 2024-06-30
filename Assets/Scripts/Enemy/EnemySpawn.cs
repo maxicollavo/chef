@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     public GameObject objectToSpawn;
     private WaitForSeconds spawnInterval = new WaitForSeconds(5f);
     private GameObject enemy;
-    [SerializeField] private Transform target;
+    [SerializeField] private GameObject target;
     [SerializeField] List<Transform> waypoints = new List<Transform>();
 
     private void Update()

@@ -7,6 +7,7 @@ public class NewPlayerMovement : MonoBehaviour
     Camera cam;
     private WaitForSeconds walkTime = new WaitForSeconds(5f);
 
+    public float mag;
     public float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
@@ -56,11 +57,13 @@ public class NewPlayerMovement : MonoBehaviour
 
     [SerializeField] AudioSource jumpAudio;
     [SerializeField] AudioSource walkAudio;
+    [SerializeField] AudioSource runAudio;
 
     public MovementState state;
 
     public enum MovementState
     {
+        idle,
         walking,
         sprinting,
         jumping
@@ -164,10 +167,15 @@ public class NewPlayerMovement : MonoBehaviour
             moveSpeed = sprintSpeed;
         }
 
-        else if (grounded)
+        else if (grounded && mag > 0)
         {
             state = MovementState.walking;
             moveSpeed = walkSpeed;
+        }
+
+        else if (mag == 0)
+        {
+            state = MovementState.idle;
         }
 
         else
@@ -176,10 +184,34 @@ public class NewPlayerMovement : MonoBehaviour
             moveSpeed = (walkSpeed + sprintSpeed) / 2.3f;
         }
     }
+    
+    void SoundManager()
+    {
+        if (state == MovementState.idle)
+        {
+            runAudio.Stop();
+            walkAudio.Stop();
+        }
+        else if (state == MovementState.walking)
+        {
+            runAudio.Stop();
+            walkAudio.Play();
+        }
+        else if (state == MovementState.sprinting)
+        {
+            walkAudio.Stop();
+            runAudio.Play();
+        }
+    }
 
     void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        mag = Vector3.Magnitude(moveDirection);
+        if (mag == 0)
+        {
+            state = MovementState.idle;
+        }
 
         if (OnSlope() && !exitingSlope)
         {

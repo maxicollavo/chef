@@ -1,17 +1,17 @@
 using System;
+using UnityEngine.AI;
 using UnityEngine;
 
 public class EnemyRecipe : MonoBehaviour
 {
     public GunType gunType { get; set; }
     public int hitNumber { get; set; }
-
     [SerializeField] private GameObject ingredient;
-
     public bool pactAchieved;
-
+    public Animator anim;
     public static EnemyRecipe Instance { get; private set; }
-
+    private EnemyAI ai;
+    private NavMeshAgent nav;
 
     private void Awake()
     {
@@ -19,6 +19,8 @@ public class EnemyRecipe : MonoBehaviour
 
         hitNumber = UnityEngine.Random.Range(1, 4);
         gunType = GetGun();
+        ai = GetComponent<EnemyAI>();
+        nav = GetComponent<NavMeshAgent>();
     }
 
     public GunType GetGun()
@@ -40,6 +42,9 @@ public class EnemyRecipe : MonoBehaviour
 
         if (pactAchieved)
         {
+            ai.enabled = false;
+            nav.enabled = false;
+            anim.SetTrigger("OnDie");
             EventManager.Instance.Dispatch(GameEventTypes.OnAbility, this, EventArgs.Empty);
             GameManager.Instance.enemies.Remove(gameObject);
 
@@ -47,8 +52,6 @@ public class EnemyRecipe : MonoBehaviour
             {
                 Instantiate(ingredient, transform.position, transform.rotation);
             }
-
-            Destroy(gameObject);
         }
     }
 
