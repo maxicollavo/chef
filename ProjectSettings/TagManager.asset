@@ -30,6 +30,7 @@ TagManager:
   - Conveyor
   - SpeedBoost
   - CheckPoint
+  - StartBoss
   layers:
   - Default
   - TransparentFX

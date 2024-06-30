@@ -28,6 +28,18 @@ public class BarManager : MonoBehaviour
         EventManager.Instance.Unregister(GameEventTypes.OnAbility, OnAbilityDecision);
     }
 
+    private void Update()
+    {
+        if (currentAbValue > 50)
+        {
+            GameManager.Instance.goodChef = true;
+        }
+        else if (currentConfValue >= 50)
+        {
+            GameManager.Instance.goodChef = false;
+        }
+    }
+
     private void OnAbilityDecision(object sender, EventArgs e)
     {
         if (currentAbValue < _maxValue)

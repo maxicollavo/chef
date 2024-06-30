@@ -36,6 +36,12 @@ public class StartEnemies : MonoBehaviour
         {
             grabSource.Play();
         }
+
+        if (other.CompareTag("StartBoss"))
+        {
+            GameManager.Instance.onBoss = true;
+            other.gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerStay(Collider other)

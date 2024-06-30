@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public bool canAttack = true;
     public bool goForward;
     public bool speedBoost;
+    public bool onBoss;
+    public bool goodChef;
+    public bool bossAlive;
 
     public bool enemyAttacked;
     public bool onMinigame;
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         EventManager.Instance.Register(GameEventTypes.OnRestart, Restart);
         hasRecipeBook = true;
+        bossAlive = true;
     }
 
     private void OnDestroy()
