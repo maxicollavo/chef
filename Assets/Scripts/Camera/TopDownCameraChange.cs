@@ -60,7 +60,10 @@ public class TopDownCameraChange : MonoBehaviour
     {
         if (other.CompareTag("TopDown"))
         {
-            sizzlingSource.Play();
+            var cintas = other.GetComponent<Cintas>();
+            if (cintas == null)
+                sizzlingSource.Play();
+
             regularCamIsActive = false;
             crosshair.SetActive(regularCamIsActive);
             changeCam = true;
@@ -72,7 +75,9 @@ public class TopDownCameraChange : MonoBehaviour
     {
         if (other.CompareTag("TopDown"))
         {
-            sizzlingSource.Stop();
+            if (sizzlingSource.isPlaying)
+                sizzlingSource.Stop();
+
             regularCamIsActive = true;
             crosshair.SetActive(regularCamIsActive);
             changeCam = false;
