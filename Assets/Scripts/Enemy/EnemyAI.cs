@@ -33,16 +33,14 @@ public class EnemyAI : MonoBehaviour
     private float cooldownTimer;
     private float shootCooldown = 1f;
 
-
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Target");
-        Debug.Log(target);
     }
 
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Target");
         maxEnemyBullet = 3;
         var index = Random.Range(0, 11);
         enemyPoolBullet = new Pool<GameObject>(CreateBullet, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxEnemyBullet);
@@ -53,6 +51,12 @@ public class EnemyAI : MonoBehaviour
         {
             agent.SetDestination(Waypoints[currentWaypointIndex].position);
         }
+    }
+
+    private void OnEnable()
+    {
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Target");
     }
 
     void Update()

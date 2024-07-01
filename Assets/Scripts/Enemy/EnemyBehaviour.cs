@@ -34,8 +34,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        if (ai == null)
+        ai = GetComponent<EnemyAI>();
+        if (nav == null)
+        nav = GetComponent<NavMeshAgent>();
 
+        health -= damage;
         if (health <= 0)
         {
             ai.enabled = false;
