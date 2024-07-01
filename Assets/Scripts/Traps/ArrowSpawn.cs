@@ -11,7 +11,7 @@ public class ArrowSpawn : FallingFood
         fruitObjects.Add(fruitInstance);
 
         var rb = fruitInstance.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.left * 100;
+        rb.velocity = Vector3.left * 50;
 
         fruitCount++;
     }

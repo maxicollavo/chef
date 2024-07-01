@@ -46,7 +46,16 @@ public class TopDownCameraChange : MonoBehaviour
             fppCamera.SetActive(true);
         }
     }
-
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("TopDown"))
+    //    {
+    //        regularCamIsActive = false;
+    //        crosshair.SetActive(regularCamIsActive);
+    //        changeCam = true;
+    //        EventManager.Instance.Dispatch(GameEventTypes.ChangeCamera, this, EventArgs.Empty);
+    //    }
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("TopDown"))

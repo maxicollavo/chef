@@ -16,6 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector3 initialPos;
     private bool isTransitioning;
     public bool checkpoint;
+    public Animation RespawnAnim;
 
     [SerializeField]
     Transform startSpawn;
@@ -274,7 +275,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (checkpoint)
         {
-            TransitionRespawnCam(respawnCam);   
+            RespawnAnim.Play();
             transform.position = checkpointSpawn.position;
         }   
         else
