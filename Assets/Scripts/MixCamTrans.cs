@@ -22,7 +22,7 @@ public class MixCamTrans : MonoBehaviour
         }
    }
 
-    public void TransitionActive( Transform EndPos, GameObject CameraOn, GameObject CameraOff)
+    public void TransitionActive(Transform EndPos, GameObject CameraOn, GameObject CameraOff)
     {
         Vector3 InitialPos = CameraOff.transform.position;
         Vector3 InitialForward = CameraOff.transform.forward;

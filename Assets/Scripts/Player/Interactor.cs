@@ -16,6 +16,16 @@ public class Interactor : MonoBehaviour
         EventManager.Instance.Unregister(GameEventTypes.OnConf, OnConfDecision);
     }
 
+    public void CantMove()
+    {
+        GameManager.Instance.onMinigame = true;
+    }
+
+    public void MoveAgain()
+    {
+        GameManager.Instance.onMinigame = false;
+    }
+
     private void OnConfDecision(object sender, EventArgs e)
     {
         StartCoroutine(ConfDecisionCoroutine());
