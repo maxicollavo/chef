@@ -26,6 +26,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     Transform checkpointSpawn;
 
+    bool onFire;
     int maxHealth;
     public int health;
     public int maxLives;
@@ -92,6 +93,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             boostTime = 0;
             GameManager.Instance.speedBoost = false;
+        }
+
+        while (onFire)
+        {
+            StartCoroutine(FireDamage());
         }
     }
 
@@ -330,12 +336,23 @@ public class PlayerBehaviour : MonoBehaviour
     {
          Debug.Log("Entro a respawn");
     }
+
     public IEnumerator Delay()
     {
         isTransitioning = true;
         yield return new WaitForSeconds(1);
         isTransitioning = false;
     }
+
+    public IEnumerator FireDamage()
+    {
+        while (onFire)
+        {
+            health -= 5;
+            yield return new WaitForSeconds(1);
+        }
+    }
+
     private void TransitionCamBack(Camera cam)
     {
         if (GameManager.Instance.onMinigame == true && isTransitioning == false)
@@ -409,6 +426,10 @@ public class PlayerBehaviour : MonoBehaviour
                 }
             }
         }
+        if (other.CompareTag("OnDamage"))
+        {
+            onFire = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -417,6 +438,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             subtitleText.SetActive(false);
             miniGameText.SetActive(false);
+        }
+
+        if (other.CompareTag("OnDamage"))
+        {
+            onFire = false;
         }
     }
 }
