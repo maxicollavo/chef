@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArrowSpawn : FallingFood
 {
+    public AudioSource ArrowSound;
     public override void  InstantiateFruit()
     {
         GameObject fruitInstance = poolFruit.GetObject();

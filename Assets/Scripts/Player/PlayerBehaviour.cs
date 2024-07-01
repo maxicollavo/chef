@@ -333,10 +333,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
      
     }
-    private void TransitionRespawnCam(Camera cam)
-    {
-         Debug.Log("Entro a respawn");
-    }
+ 
 
     public IEnumerator Delay()
     {

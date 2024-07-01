@@ -1854,7 +1854,6 @@ GameObject:
   - component: {fileID: 88134030}
   - component: {fileID: 88134033}
   - component: {fileID: 88134035}
-  - component: {fileID: 88134034}
   m_Layer: 0
   m_Name: SpawnArrows
   m_TagString: Untagged
@@ -1871,7 +1870,7 @@ Transform:
   m_GameObject: {fileID: 88134029}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.56026685, z: -0, w: 0.8283122}
-  m_LocalPosition: {x: 11.669434, y: 7.24, z: -8.261591}
+  m_LocalPosition: {x: 12.099426, y: 3.7800002, z: -11.701591}
   m_LocalScale: {x: 0.09725869, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1894,33 +1893,6 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
---- !u!54 &88134034
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88134029}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &88134035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27689,7 +27661,6 @@ GameObject:
   - component: {fileID: 611621325}
   - component: {fileID: 611621328}
   - component: {fileID: 611621330}
-  - component: {fileID: 611621329}
   m_Layer: 0
   m_Name: SpawnArrows
   m_TagString: Untagged
@@ -27706,7 +27677,7 @@ Transform:
   m_GameObject: {fileID: 611621324}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.56026685, z: -0, w: 0.8283122}
-  m_LocalPosition: {x: 11.931152, y: 7.24, z: -11.745347}
+  m_LocalPosition: {x: 12.361145, y: 3.7800002, z: -15.185347}
   m_LocalScale: {x: 0.09725869, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27729,33 +27700,6 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
---- !u!54 &611621329
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611621324}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &611621330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37101,7 +37045,7 @@ Transform:
   m_GameObject: {fileID: 830244197}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 36.6, y: -0.03, z: 10.6}
+  m_LocalPosition: {x: 36.6, y: 1.41, z: 10.6}
   m_LocalScale: {x: 115.026474, y: 84.503784, z: 36.65624}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50470,7 +50414,6 @@ GameObject:
   - component: {fileID: 1012219351}
   - component: {fileID: 1012219354}
   - component: {fileID: 1012219356}
-  - component: {fileID: 1012219355}
   m_Layer: 0
   m_Name: SpawnArrows
   m_TagString: Untagged
@@ -50487,7 +50430,7 @@ Transform:
   m_GameObject: {fileID: 1012219350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.56026685, z: -0, w: 0.8283122}
-  m_LocalPosition: {x: 10.78, y: 7.24, z: 3.56}
+  m_LocalPosition: {x: 11.21, y: 3.78, z: 0.12}
   m_LocalScale: {x: 0.09725869, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50510,33 +50453,6 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
---- !u!54 &1012219355
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012219350}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1012219356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51654,7 +51570,6 @@ GameObject:
   - component: {fileID: 1050977035}
   - component: {fileID: 1050977036}
   - component: {fileID: 1050977037}
-  - component: {fileID: 1050977038}
   - component: {fileID: 1050977039}
   - component: {fileID: 1050977040}
   - component: {fileID: 1050977041}
@@ -52101,7 +52016,7 @@ MonoBehaviour:
   jumpAudio: {fileID: 1050977018}
   walkAudio: {fileID: 1050977034}
   runAudio: {fileID: 1050977037}
-  slideAudio: {fileID: 1050977038}
+  slideAudio: {fileID: 0}
   state: 0
 --- !u!4 &1050977027
 Transform:
@@ -52112,7 +52027,7 @@ Transform:
   m_GameObject: {fileID: 1050977012}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7201737, z: -0, w: 0.6937939}
-  m_LocalPosition: {x: -441.65, y: 3.355, z: 24.048124}
+  m_LocalPosition: {x: -445.99, y: 3.355, z: 10.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52731,102 +52646,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &1050977038
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050977012}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9aa08a474e477c24fb4af6a4d129773d, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!82 &1050977039
 AudioSource:
   m_ObjectHideFlags: 0
@@ -52954,9 +52773,10 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 62fd6702e91f4c243835674418a9698d, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 62fd6702e91f4c243835674418a9698d, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &1054193160
@@ -53172,7 +52992,6 @@ GameObject:
   - component: {fileID: 1067081490}
   - component: {fileID: 1067081493}
   - component: {fileID: 1067081495}
-  - component: {fileID: 1067081494}
   m_Layer: 0
   m_Name: SpawnArrows
   m_TagString: Untagged
@@ -53189,7 +53008,7 @@ Transform:
   m_GameObject: {fileID: 1067081489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.56026685, z: -0, w: 0.8283122}
-  m_LocalPosition: {x: 10.997528, y: 7.24, z: 0.6682973}
+  m_LocalPosition: {x: 11.427521, y: 3.7800002, z: -2.7717025}
   m_LocalScale: {x: 0.09725869, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53212,33 +53031,6 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
---- !u!54 &1067081494
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067081489}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1067081495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53279,7 +53071,7 @@ Transform:
   m_GameObject: {fileID: 1067457488}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.56026685, z: -0, w: 0.8283122}
-  m_LocalPosition: {x: 11.226959, y: 7.24, z: -2.3817043}
+  m_LocalPosition: {x: 11.656952, y: 3.7800002, z: -5.821704}
   m_LocalScale: {x: 0.09725869, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61798,7 +61590,7 @@ Transform:
   m_GameObject: {fileID: 1240644675}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.222, z: -0.04}
+  m_LocalPosition: {x: -0, y: 0.222, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -119523,7 +119315,6 @@ GameObject:
   - component: {fileID: 1960059421}
   - component: {fileID: 1960059424}
   - component: {fileID: 1960059426}
-  - component: {fileID: 1960059425}
   m_Layer: 0
   m_Name: SpawnArrows
   m_TagString: Untagged
@@ -119540,7 +119331,7 @@ Transform:
   m_GameObject: {fileID: 1960059420}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.56026685, z: -0, w: 0.8283122}
-  m_LocalPosition: {x: 11.46286, y: 7.24, z: -5.5181556}
+  m_LocalPosition: {x: 11.892853, y: 3.7800002, z: -8.958156}
   m_LocalScale: {x: 0.09725869, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119563,33 +119354,6 @@ MonoBehaviour:
   maxFruits: 1
   timeToRestart: 2
   fruitCount: 0
---- !u!54 &1960059425
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960059420}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1960059426
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -191,11 +191,9 @@ public class NewPlayerMovement : MonoBehaviour
                 case MovementState.idle:
                     walkAudio.Stop();
                     runAudio.Stop();
-                    slideAudio.Stop();
                     break;
                 case MovementState.walking:
                     runAudio.Stop();
-                    slideAudio.Stop();
                     if (!walkAudio.isPlaying)
                     {
                         walkAudio.Play();
@@ -203,7 +201,6 @@ public class NewPlayerMovement : MonoBehaviour
                     break;
                 case MovementState.sprinting:
                     walkAudio.Stop();
-                    slideAudio.Stop();
                     if (!runAudio.isPlaying)
                     {
                         runAudio.Play();
@@ -212,15 +209,10 @@ public class NewPlayerMovement : MonoBehaviour
                 case MovementState.jumping:
                     walkAudio.Stop();
                     runAudio.Stop();
-                    slideAudio.Stop();
                     break;
                 case MovementState.sliding:
                     walkAudio.Stop();
                     runAudio.Stop();
-                    if (!slideAudio.isPlaying)
-                    {
-                        slideAudio.Play();
-                    }
                     break;
             }
         }
