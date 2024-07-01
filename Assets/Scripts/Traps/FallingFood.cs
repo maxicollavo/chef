@@ -7,13 +7,13 @@ public class FallingFood : MonoBehaviour
 {
     [SerializeField]
     GameObject fruitPrefab;
-    Pool<GameObject> poolFruit;
-    private List<GameObject> fruitObjects = new List<GameObject>();
+    public Pool<GameObject> poolFruit;
+    public List<GameObject> fruitObjects = new List<GameObject>();
 
     bool isSpawned;
     public int maxFruits;
     public float timeToRestart;
-    int fruitCount;
+    public int fruitCount;
     private float fruitTimeCount;
     private float timeToStart;
 
@@ -84,7 +84,7 @@ public class FallingFood : MonoBehaviour
         fruitCount = 0;
     }
 
-    void InstantiateFruit()
+    public virtual void InstantiateFruit()
     {
         GameObject fruitInstance = poolFruit.GetObject();
         fruitInstance.transform.position = transform.position;
@@ -95,4 +95,5 @@ public class FallingFood : MonoBehaviour
 
         fruitCount++;
     }
+   
 }
