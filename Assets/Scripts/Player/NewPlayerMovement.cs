@@ -58,6 +58,7 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] AudioSource jumpAudio;
     [SerializeField] AudioSource walkAudio;
     [SerializeField] AudioSource runAudio;
+    [SerializeField] AudioSource slideAudio;
 
     public MovementState state;
     private MovementState previousState;
@@ -67,7 +68,8 @@ public class NewPlayerMovement : MonoBehaviour
         idle,
         walking,
         sprinting,
-        jumping
+        jumping,
+        sliding
     }
 
     private void Awake()
@@ -107,6 +109,7 @@ public class NewPlayerMovement : MonoBehaviour
 
         if (isSliding)
         {
+            state = MovementState.sliding;
             rb.drag = slidingDrag;
 
             if (GameManager.Instance.speedBoost)
@@ -147,24 +150,15 @@ public class NewPlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-
-
-        // if (Input.GetKeyDown(crouchKey) && !isSliding)
-        // {
-        //     playerCapsule.transform.localScale = new Vector3(playerCapsule.transform.localScale.x, crouchYScale, playerCapsule.transform.localScale.z);
-
-        //     rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-        // }
-
-        // if (Input.GetKeyUp(crouchKey) && !isSliding)
-        // {
-        //     playerCapsule.transform.localScale = new Vector3(playerCapsule.transform.localScale.x, startYScale, playerCapsule.transform.localScale.z);
-        // }
     }
 
     void StateHandler()
     {
-        if (grounded)
+        if (isSliding)
+        {
+            state = MovementState.sliding;
+        }
+        else if (grounded)
         {
             if (Input.GetKey(sprintKey))
             {
@@ -191,15 +185,17 @@ public class NewPlayerMovement : MonoBehaviour
     {
         if (state != previousState)
         {
-            previousState = state; // Actualizar el estado previo
+            previousState = state;
             switch (state)
             {
                 case MovementState.idle:
                     walkAudio.Stop();
                     runAudio.Stop();
+                    slideAudio.Stop();
                     break;
                 case MovementState.walking:
                     runAudio.Stop();
+                    slideAudio.Stop();
                     if (!walkAudio.isPlaying)
                     {
                         walkAudio.Play();
@@ -207,6 +203,7 @@ public class NewPlayerMovement : MonoBehaviour
                     break;
                 case MovementState.sprinting:
                     walkAudio.Stop();
+                    slideAudio.Stop();
                     if (!runAudio.isPlaying)
                     {
                         runAudio.Play();
@@ -215,6 +212,15 @@ public class NewPlayerMovement : MonoBehaviour
                 case MovementState.jumping:
                     walkAudio.Stop();
                     runAudio.Stop();
+                    slideAudio.Stop();
+                    break;
+                case MovementState.sliding:
+                    walkAudio.Stop();
+                    runAudio.Stop();
+                    if (!slideAudio.isPlaying)
+                    {
+                        slideAudio.Play();
+                    }
                     break;
             }
         }
