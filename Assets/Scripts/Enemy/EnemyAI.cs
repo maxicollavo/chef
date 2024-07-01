@@ -36,11 +36,11 @@ public class EnemyAI : MonoBehaviour
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Target");
     }
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Target");
         maxEnemyBullet = 3;
         var index = Random.Range(0, 11);
         enemyPoolBullet = new Pool<GameObject>(CreateBullet, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxEnemyBullet);

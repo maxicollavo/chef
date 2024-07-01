@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ai: {fileID: 6590009481806389456}
+  coll: {fileID: 3840479239402105373}
 --- !u!4 &5401344629685103779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 837c6ed8cea47b9488dea5ac85458d16, type: 3}
@@ -288,6 +289,11 @@ PrefabInstance:
 --- !u!195 &2130845354442283462 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 8320187689004688255, guid: 91fdae0c0125f13409d059c0f3218bd8, type: 3}
+  m_PrefabInstance: {fileID: 7990922931731511993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3840479239402105373 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6604926415755415716, guid: 91fdae0c0125f13409d059c0f3218bd8, type: 3}
   m_PrefabInstance: {fileID: 7990922931731511993}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6590009481806389456 stripped

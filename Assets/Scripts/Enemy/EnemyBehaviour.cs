@@ -22,28 +22,21 @@ public class EnemyBehaviour : MonoBehaviour
         fillArea.color = Color.green;
         ai = GetComponent<EnemyAI>();
         nav = GetComponent<NavMeshAgent>();
-        Debug.Log(ai);
-        Debug.Log(nav);
-    }
-
-    private void Start()
-    {
-        maxHealth = 100;
-        health = maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        if (ai == null)
-        ai = GetComponent<EnemyAI>();
-        if (nav == null)
-        nav = GetComponent<NavMeshAgent>();
-
         health -= damage;
         if (health <= 0)
         {
+            if (ai == null)
+                ai = GetComponent<EnemyAI>();
+            if (nav == null)
+                nav = GetComponent<NavMeshAgent>();
+
             ai.enabled = false;
             nav.enabled = false;
+
             anim.SetTrigger("OnDie");
             EventManager.Instance.Dispatch(GameEventTypes.OnConf, this, EventArgs.Empty);
 

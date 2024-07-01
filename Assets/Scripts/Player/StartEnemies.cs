@@ -10,6 +10,7 @@ public class StartEnemies : MonoBehaviour
 
     [SerializeField] GameObject ingredientCanva;
     [SerializeField] GameObject subtitleCanva;
+    [SerializeField] GameObject boss;
 
     [SerializeField] GameObject readyText;
     [SerializeField] GameObject notReadyText;
@@ -40,6 +41,7 @@ public class StartEnemies : MonoBehaviour
         if (other.CompareTag("StartBoss"))
         {
             GameManager.Instance.onBoss = true;
+            boss.SetActive(true);
             other.gameObject.SetActive(false);
         }
     }
