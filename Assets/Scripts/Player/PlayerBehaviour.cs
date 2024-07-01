@@ -104,8 +104,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (!onFire)
         {
-            StopCoroutine(fireCoroutine);
-            fireCoroutine = null;
+            if (fireCoroutine != null)
+            {
+                StopCoroutine(fireCoroutine);
+                fireCoroutine = null;
+            }
         }
     }
 
@@ -326,7 +329,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
      
     }
- 
 
     public IEnumerator Delay()
     {
