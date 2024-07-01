@@ -8,12 +8,12 @@ public class ArrowSpawn : FallingFood
     public override void  InstantiateFruit()
     {
         GameObject fruitInstance = poolFruit.GetObject();
+        ArrowSound.Play();
         fruitInstance.transform.position = transform.position;
         fruitObjects.Add(fruitInstance);
 
         var rb = fruitInstance.GetComponent<Rigidbody>();
         rb.velocity = Vector3.left * 50;
-
         fruitCount++;
     }
 }
