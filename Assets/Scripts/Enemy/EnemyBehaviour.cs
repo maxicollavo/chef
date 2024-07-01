@@ -22,6 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
         fillArea.color = Color.green;
         ai = GetComponent<EnemyAI>();
         nav = GetComponent<NavMeshAgent>();
+        Debug.Log(ai);
+        Debug.Log(nav);
     }
 
     private void Start()

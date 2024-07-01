@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject target { private get; set; }
 
+    [SerializeField] Transform bulletPoint;
     [SerializeField] AudioSource bulletSource;
     [SerializeField] Animator enemy;
 
@@ -102,8 +103,8 @@ public class EnemyAI : MonoBehaviour
     {
         Vector3 directionToPlayer = (target.transform.position - transform.position);
         GameObject enemyBulletInstance = enemyPoolBullet.GetObject();
-        enemyBulletInstance.transform.position = transform.position; //ERROR: este transform.position cambiarlo por el arma cuando el enemigo tenga brazos
-        enemyBulletInstance.transform.forward = directionToPlayer; //ERROR: este transform.position cambiarlo por el arma cuando el enemigo tenga brazos
+        enemyBulletInstance.transform.position = bulletPoint.position;
+        enemyBulletInstance.transform.forward = directionToPlayer; 
         enemyBulletObjects.Add(enemyBulletInstance);
     }
 
@@ -124,7 +125,6 @@ public class EnemyAI : MonoBehaviour
         enemy.SetBool("OnAttack", true);
         enemy.SetBool("OnPatrol", false);
         enemy.SetBool("OnChase", false);
-        Shoot();
     }
 
     void Patrolling()

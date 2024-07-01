@@ -7,10 +7,11 @@ public class TurnFire : MonoBehaviour
     [SerializeField] List<GameObject> fire = new List<GameObject>();
     int enabledFire = 0;
     int i = 0;
+    bool isCoroutineRunning = false;
 
     private void Update()
     {
-        if (GameManager.Instance.onBoss)
+        if (GameManager.Instance.onBoss && !isCoroutineRunning)
         {
             StartCoroutine(TurnFireCoroutine());
         }
@@ -18,6 +19,7 @@ public class TurnFire : MonoBehaviour
 
     IEnumerator TurnFireCoroutine()
     {
+        isCoroutineRunning = true;
         while (IsEnemyAlive())
         {
             yield return new WaitForSeconds(3f);
@@ -31,6 +33,7 @@ public class TurnFire : MonoBehaviour
             //Apagar todos los sonidos
             TurnOff();
         }
+        isCoroutineRunning = false;
     }
 
     public bool IsEnemyAlive()
@@ -40,10 +43,10 @@ public class TurnFire : MonoBehaviour
 
     void TurnOff()
     {
-        foreach(var particles in fire)
+        foreach (var particles in fire)
         {
             particles.SetActive(false);
-        }   
+        }
     }
 
     void TurnOn()
@@ -61,7 +64,7 @@ public class TurnFire : MonoBehaviour
 
             var random = Random.Range(0, fire.Count);
 
-            if (random == i)
+            if (random == i && !fire[i].activeSelf)
             {
                 fire[i].SetActive(true);
                 enabledFire++;
