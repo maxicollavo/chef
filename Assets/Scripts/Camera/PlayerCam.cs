@@ -31,19 +31,22 @@ public class PlayerCam : MonoBehaviour
 
     private void LateUpdate()
     {
-        sensX = SliderX.value;
-        sensY = SliderY.value;
-        if (TopDownCameraChange.changeCam || !isMouseActive) { return; }
+        if (!GameManager.Instance.onMinigame)
+        {
+            sensX = SliderX.value;
+            sensY = SliderY.value;
+            if (TopDownCameraChange.changeCam || !isMouseActive) { return; }
 
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, minClamp, maxClamp);
+            yRotation += mouseX;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, minClamp, maxClamp);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        }
     }
 
     private void ToggleMouseMovement()

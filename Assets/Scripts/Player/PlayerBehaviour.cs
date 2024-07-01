@@ -16,7 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector3 initialPos;
     private bool isTransitioning;
     public bool checkpoint;
-    public Animation RespawnAnim;
+    public Animator anim;
     private Coroutine fireCoroutine;
 
     [SerializeField]
@@ -281,11 +281,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void RelocatePlayer()
     {
+        anim.SetTrigger("OnDie");
+
         if (checkpoint)
         {
-            RespawnAnim.Play();
             transform.position = checkpointSpawn.position;
-        }   
+        }
         else
         {
             transform.position = startSpawn.position;

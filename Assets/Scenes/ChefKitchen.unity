@@ -52698,7 +52698,6 @@ GameObject:
   - component: {fileID: 1050977037}
   - component: {fileID: 1050977039}
   - component: {fileID: 1050977040}
-  - component: {fileID: 1050977041}
   m_Layer: 6
   m_Name: Player
   m_TagString: PlayerBody
@@ -53081,7 +53080,7 @@ MonoBehaviour:
   respawnCam: {fileID: 1831489950}
   mainCam: {fileID: 1240644676}
   checkpoint: 0
-  RespawnAnim: {fileID: 1050977041}
+  anim: {fileID: 1050977040}
   startSpawn: {fileID: 1845179554}
   PostitionCamMiniGame: {fileID: 815990632}
   PostitionCamRespawn: {fileID: 1831489947}
@@ -53878,22 +53877,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!111 &1050977041
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050977012}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 62fd6702e91f4c243835674418a9698d, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 62fd6702e91f4c243835674418a9698d, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1054193160
 GameObject:
   m_ObjectHideFlags: 0
