@@ -25,6 +25,7 @@ public class BeltMove : MonoBehaviour
             NewPlayerMovement.Instance.onBelts = true;
     }
 
+
     private void OnCollisionExit(Collision collision)
     {
         OnBelts.Remove(collision.gameObject);

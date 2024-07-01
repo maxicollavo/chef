@@ -137,7 +137,7 @@ public class NewPlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(jumpKey) && readyToJump && grounded && !isSliding && !onBelts)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && !isSliding && !onBelts )
         {
             readyToJump = false;
 
@@ -145,6 +145,7 @@ public class NewPlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
 
         // if (Input.GetKeyDown(crouchKey) && !isSliding)
         // {
@@ -165,24 +166,28 @@ public class NewPlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
+            walkAudio.Pause();
         }
-
+        
         else if (grounded && mag > 0)
         {
             state = MovementState.walking;
             moveSpeed = walkSpeed;
+            runAudio.Play();
         }
-
+        
         else if (mag == 0)
         {
             state = MovementState.idle;
-            walkAudio.Play();  
+            walkAudio.Play();
+            runAudio.Pause();
         }
-
+        
         else
         {
             state = MovementState.jumping;
             moveSpeed = (walkSpeed + sprintSpeed) / 2.3f;
+            runAudio.Pause();
         }
     }
     

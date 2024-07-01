@@ -25,9 +25,9 @@ public class FallingFood : MonoBehaviour
 
     private void Start()
     {
+        poolFruit = new Pool<GameObject>(CreateFruit, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxFruits);
         fruitCount = 0;
 
-        poolFruit = new Pool<GameObject>(CreateFruit, (gameObject) => gameObject.SetActive(true), (gameObject) => gameObject.SetActive(false), maxFruits);
 
         EventManager.Instance.Register(GameEventTypes.OnRestart, Restart);
     }
