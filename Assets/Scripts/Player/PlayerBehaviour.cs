@@ -329,7 +329,6 @@ public class PlayerBehaviour : MonoBehaviour
     private void TransitionRespawnCam(Camera cam)
     {
          Debug.Log("Entro a respawn");
-          RespawnCam.Instance.TransitionActive(mainCam.transform, mainCam.gameObject, respawnCam.gameObject);
     }
     public IEnumerator Delay()
     {
