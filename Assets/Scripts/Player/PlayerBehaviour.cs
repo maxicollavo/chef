@@ -36,6 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
     public AudioSource DamageSound;
     public AudioSource SpeedBoostSound;
     public AudioSource lava;
+    public AudioSource respawnSound;
 
     [SerializeField]
     GameObject miniGameText;
@@ -291,6 +292,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             transform.position = startSpawn.position;
         }
+        respawnSound.Play();
     }
 
     public void TakeDamage(int dmg)
