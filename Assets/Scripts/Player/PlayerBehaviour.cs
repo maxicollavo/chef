@@ -32,6 +32,7 @@ public class PlayerBehaviour : MonoBehaviour
     public int currentLives;
     public AudioSource DamageSound;
     public AudioSource SpeedBoostSound;
+    public AudioSource lava;
 
     [SerializeField]
     GameObject miniGameText;
@@ -232,6 +233,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Death()
     {
+        lava.Play();
         currentLives--;
         if (currentLives <= 0)
         {

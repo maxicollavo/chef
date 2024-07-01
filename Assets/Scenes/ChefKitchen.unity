@@ -1887,8 +1887,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 0
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &91484438
 GameObject:
   m_ObjectHideFlags: 0
@@ -22633,8 +22635,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 8
   timeToRestart: 4
+  fruitCount: 0
 --- !u!1001 &397606792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23166,8 +23170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 1
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &425086559
 GameObject:
   m_ObjectHideFlags: 0
@@ -27673,8 +27679,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 0
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &612622910
 GameObject:
   m_ObjectHideFlags: 0
@@ -28198,8 +28206,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 8
   timeToRestart: 4
+  fruitCount: 0
 --- !u!1 &628291446
 GameObject:
   m_ObjectHideFlags: 0
@@ -28454,8 +28464,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 1
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &641684318
 GameObject:
   m_ObjectHideFlags: 0
@@ -28612,8 +28624,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 8
   timeToRestart: 4
+  fruitCount: 0
 --- !u!1001 &648582524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36293,8 +36307,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 1
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &790741141
 GameObject:
   m_ObjectHideFlags: 0
@@ -50379,8 +50395,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 0
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &1013211829
 GameObject:
   m_ObjectHideFlags: 0
@@ -51486,6 +51504,7 @@ GameObject:
   - component: {fileID: 1050977036}
   - component: {fileID: 1050977037}
   - component: {fileID: 1050977038}
+  - component: {fileID: 1050977039}
   m_Layer: 6
   m_Name: Player
   m_TagString: PlayerBody
@@ -51877,6 +51896,7 @@ MonoBehaviour:
   currentLives: 0
   DamageSound: {fileID: 1050977014}
   SpeedBoostSound: {fileID: 1050977035}
+  lava: {fileID: 1050977039}
   miniGameText: {fileID: 1979919213}
   subtitleText: {fileID: 440678477}
   movementText: {fileID: 51498885}
@@ -52654,6 +52674,102 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &1050977039
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050977012}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 24e2d301da000f349abcc65cad178ac3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1054193160
 GameObject:
   m_ObjectHideFlags: 0
@@ -52699,8 +52815,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 8
   timeToRestart: 4
+  fruitCount: 0
 --- !u!1 &1063552173
 GameObject:
   m_ObjectHideFlags: 0
@@ -52899,8 +53017,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 0
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &1067457488
 GameObject:
   m_ObjectHideFlags: 0
@@ -52946,8 +53066,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 0
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &1074092476
 GameObject:
   m_ObjectHideFlags: 0
@@ -62933,8 +63055,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 1
   timeToRestart: 2
+  fruitCount: 0
 --- !u!4 &1302319835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
@@ -80900,8 +81024,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 1
   timeToRestart: 2
+  fruitCount: 0
 --- !u!4 &1479698510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
@@ -112088,8 +112214,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 1
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &1859078569
 GameObject:
   m_ObjectHideFlags: 0
@@ -119024,8 +119152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 1567938009994585901, guid: e1cd49f284e8a7244ad0318180a2fd20, type: 3}
+  fruitObjects: []
   maxFruits: 1
   timeToRestart: 2
+  fruitCount: 0
 --- !u!1 &1965025274
 GameObject:
   m_ObjectHideFlags: 0

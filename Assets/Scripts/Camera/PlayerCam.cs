@@ -14,13 +14,17 @@ public class PlayerCam : MonoBehaviour
 
     public Transform orientation;
 
-    float xRotation;
-    float yRotation;
+    private float xRotation;
+    private float yRotation;
+    private float targetXRotation;
+    private float targetYRotation;
+
     public Slider SliderX;
     public Slider SliderY;
 
     private bool isMouseActive = true;
 
+    public float lerpSpeed = 10f; // Interpolation speed for camera rotation
 
     private void Start()
     {
@@ -34,14 +38,21 @@ public class PlayerCam : MonoBehaviour
     {
         sensX = SliderX.value;
         sensY = SliderY.value;
-        if (TopDownCameraChange.changeCam || !isMouseActive) { return; }
+
+        if (TopDownCameraChange.changeCam || !isMouseActive)
+        {
+            return;
+        }
 
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, minClamp, maxClamp);
+        targetYRotation += mouseX;
+        targetXRotation -= mouseY;
+        targetXRotation = Mathf.Clamp(targetXRotation, minClamp, maxClamp);
+
+        xRotation = Mathf.Lerp(xRotation, targetXRotation, Time.deltaTime * lerpSpeed);
+        yRotation = Mathf.Lerp(yRotation, targetYRotation, Time.deltaTime * lerpSpeed);
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
