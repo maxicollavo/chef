@@ -60,6 +60,7 @@ public class NewPlayerMovement : MonoBehaviour
     [SerializeField] AudioSource runAudio;
 
     public MovementState state;
+    private MovementState previousState;
 
     public enum MovementState
     {
@@ -80,8 +81,8 @@ public class NewPlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
-
         startYScale = transform.localScale.y;
+        previousState = MovementState.idle;
     }
 
     private void Update()
@@ -95,9 +96,10 @@ public class NewPlayerMovement : MonoBehaviour
         {
             MyInput();
         }
-        
-        SpeedControl();
+
         StateHandler();
+        SoundManager();
+        SpeedControl();
 
         rb.drag = grounded ? groundDrag : 0;
 
@@ -162,51 +164,59 @@ public class NewPlayerMovement : MonoBehaviour
 
     void StateHandler()
     {
-        if (grounded && Input.GetKey(sprintKey))
+        if (grounded)
         {
-            state = MovementState.sprinting;
-            moveSpeed = sprintSpeed;
-            walkAudio.Pause();
+            if (Input.GetKey(sprintKey))
+            {
+                state = MovementState.sprinting;
+                moveSpeed = sprintSpeed;
+            }
+            else if (mag > 0)
+            {
+                state = MovementState.walking;
+                moveSpeed = walkSpeed;
+            }
+            else
+            {
+                state = MovementState.idle;
+            }
         }
-        
-        else if (grounded && mag > 0)
-        {
-            state = MovementState.walking;
-            moveSpeed = walkSpeed;
-            runAudio.Play();
-        }
-        
-        else if (mag == 0)
-        {
-            state = MovementState.idle;
-            walkAudio.Play();
-            runAudio.Pause();
-        }
-        
         else
         {
             state = MovementState.jumping;
-            moveSpeed = (walkSpeed + sprintSpeed) / 2.3f;
-            runAudio.Pause();
         }
     }
-    
+
     void SoundManager()
     {
-        if (state == MovementState.idle)
+        if (state != previousState)
         {
-            runAudio.Stop();
-            walkAudio.Stop();
-        }
-        else if (state == MovementState.walking)
-        {
-            runAudio.Stop();
-            walkAudio.Play();
-        }
-        else if (state == MovementState.sprinting)
-        {
-            walkAudio.Stop();
-            runAudio.Play();
+            previousState = state; // Actualizar el estado previo
+            switch (state)
+            {
+                case MovementState.idle:
+                    walkAudio.Stop();
+                    runAudio.Stop();
+                    break;
+                case MovementState.walking:
+                    runAudio.Stop();
+                    if (!walkAudio.isPlaying)
+                    {
+                        walkAudio.Play();
+                    }
+                    break;
+                case MovementState.sprinting:
+                    walkAudio.Stop();
+                    if (!runAudio.isPlaying)
+                    {
+                        runAudio.Play();
+                    }
+                    break;
+                case MovementState.jumping:
+                    walkAudio.Stop();
+                    runAudio.Stop();
+                    break;
+            }
         }
     }
 
@@ -214,10 +224,6 @@ public class NewPlayerMovement : MonoBehaviour
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         mag = Vector3.Magnitude(moveDirection);
-        if (mag == 0)
-        {
-            state = MovementState.idle;
-        }
 
         if (OnSlope() && !exitingSlope)
         {
@@ -226,12 +232,14 @@ public class NewPlayerMovement : MonoBehaviour
             if (rb.velocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
-
         else if (grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-
+        }
         else if (!grounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
 
         rb.useGravity = !OnSlope();
     }
@@ -243,7 +251,6 @@ public class NewPlayerMovement : MonoBehaviour
             if (rb.velocity.magnitude > moveSpeed)
                 rb.velocity = rb.velocity.normalized * moveSpeed * 2f;
         }
-
         else
         {
             Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -268,7 +275,6 @@ public class NewPlayerMovement : MonoBehaviour
     void ResetJump()
     {
         readyToJump = true;
-
         exitingSlope = false;
     }
 
