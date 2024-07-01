@@ -17,6 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool isTransitioning;
     public bool checkpoint;
     public Animation RespawnAnim;
+    private Coroutine fireCoroutine;
 
     [SerializeField]
     Transform startSpawn;
@@ -27,7 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     Transform checkpointSpawn;
 
-    bool onFire;
+    public bool onFire;
     int maxHealth;
     public int health;
     public int maxLives;
@@ -96,9 +97,15 @@ public class PlayerBehaviour : MonoBehaviour
             GameManager.Instance.speedBoost = false;
         }
 
-        while (onFire)
+        if (health <= 0)
         {
-            StartCoroutine(FireDamage());
+            Death();
+        }
+
+        if (!onFire)
+        {
+            StopCoroutine(fireCoroutine);
+            fireCoroutine = null;
         }
     }
 
@@ -248,7 +255,6 @@ public class PlayerBehaviour : MonoBehaviour
             TopDownCameraChange.changeCam = false;
             return;
         }
-
         health = maxHealth;
         RelocatePlayer();
         ResetEnemiesStats();
@@ -288,12 +294,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         EventManager.Instance.Dispatch(GameEventTypes.OnReceiveDamage, this, EventArgs.Empty);
         health -= dmg;
-
-        if (health <= 0)
-        {
-            Death();
-
-        }
     }
     
     public void AddHealth(int extraHealth)
@@ -304,12 +304,6 @@ public class PlayerBehaviour : MonoBehaviour
             health = maxHealth;
         }
     }
-
-  // private void EnableCamera(Camera cam)
-  // {
-  //     Camera.main.gameObject.SetActive(false);
-  //     cam.gameObject.SetActive(true);
-  // }
 
     private void DisableCamera(Camera cam)
     {
@@ -329,7 +323,6 @@ public class PlayerBehaviour : MonoBehaviour
             Cursor.visible = true;
 
             StartCoroutine(Delay());
-           // EnableCamera(cam);
         }
      
     }
@@ -365,9 +358,7 @@ public class PlayerBehaviour : MonoBehaviour
             Cursor.visible = false;
             GameManager.Instance.onMinigame = false;
             StartCoroutine (Delay());
-           // DisableCamera(cam);
         }
-      
     }
 
     private void SpeedBoost()
@@ -401,6 +392,15 @@ public class PlayerBehaviour : MonoBehaviour
         {
             checkpoint = true;
         }
+
+        if (other.CompareTag("OnDamage"))
+        {
+            onFire = true;
+            if (fireCoroutine == null)
+            {
+                fireCoroutine = StartCoroutine(FireDamage());
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -427,10 +427,6 @@ public class PlayerBehaviour : MonoBehaviour
                 }
             }
         }
-        if (other.CompareTag("OnDamage"))
-        {
-            onFire = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -440,10 +436,13 @@ public class PlayerBehaviour : MonoBehaviour
             subtitleText.SetActive(false);
             miniGameText.SetActive(false);
         }
-
         if (other.CompareTag("OnDamage"))
         {
-            onFire = false;
+            if(fireCoroutine != null)
+            {
+                StopCoroutine(fireCoroutine);
+                fireCoroutine = null;
+            }
         }
     }
 }

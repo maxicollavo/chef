@@ -47,6 +47,7 @@ public class TurnFire : MonoBehaviour
         {
             particles.SetActive(false);
         }
+        PlayerBehaviour.Instance.onFire = false;
     }
 
     void TurnOn()
