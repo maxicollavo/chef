@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1893,6 +1893,7 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
+  ArrowSound: {fileID: 0}
 --- !u!114 &88134035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27700,6 +27701,7 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
+  ArrowSound: {fileID: 0}
 --- !u!114 &611621330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49806,7 +49808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50453,6 +50455,7 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
+  ArrowSound: {fileID: 0}
 --- !u!114 &1012219356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50721,7 +50724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -51960,6 +51963,7 @@ MonoBehaviour:
   PostitionCamMiniGame: {fileID: 815990632}
   PostitionCamRespawn: {fileID: 1831489947}
   checkpointSpawn: {fileID: 463989436}
+  onFire: 0
   health: 0
   maxLives: 0
   currentLives: 0
@@ -53031,6 +53035,7 @@ MonoBehaviour:
   maxFruits: 0
   timeToRestart: 2
   fruitCount: 0
+  ArrowSound: {fileID: 0}
 --- !u!114 &1067081495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53094,6 +53099,7 @@ MonoBehaviour:
   maxFruits: 12
   timeToRestart: 1
   fruitCount: 0
+  ArrowSound: {fileID: 0}
 --- !u!114 &1067457494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86977,11 +86983,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.51
+      value: 0.816
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.42
+      value: 14.983
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalRotation.w
@@ -98120,11 +98126,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.51
+      value: 0.753
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.34
+      value: 12.903
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fab347d3f4469ce4abacd58786dd8dda, type: 3}
       propertyPath: m_LocalRotation.w
@@ -119354,6 +119360,7 @@ MonoBehaviour:
   maxFruits: 1
   timeToRestart: 2
   fruitCount: 0
+  ArrowSound: {fileID: 0}
 --- !u!114 &1960059426
 MonoBehaviour:
   m_ObjectHideFlags: 0
