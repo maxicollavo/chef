@@ -5,6 +5,8 @@ using UnityEngine;
 public class TurnFire : MonoBehaviour
 {
     [SerializeField] List<GameObject> fire = new List<GameObject>();
+    [SerializeField] AudioSource alarm;
+    [SerializeField] AudioSource fireSound;
     int enabledFire = 0;
     int i = 0;
     bool isCoroutineRunning = false;
@@ -22,15 +24,16 @@ public class TurnFire : MonoBehaviour
         isCoroutineRunning = true;
         while (IsEnemyAlive())
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             Debug.LogWarning("POR ARRANCAR EL FUEGO");
-            //Poner sonido de ALERTA y capaz de prender hornallas
+            alarm.Play();
             //Algun SHAKE de camera
             yield return new WaitForSeconds(3f);
-            //Poner sonido de FUEGO
+            alarm.Stop();
+            fireSound.Play();
             TurnOn();
             yield return new WaitForSeconds(5f);
-            //Apagar todos los sonidos
+            fireSound.Stop();
             TurnOff();
         }
         isCoroutineRunning = false;
