@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1893,7 +1893,7 @@ MonoBehaviour:
   maxFruits: 12
   timeToRestart: 3
   fruitCount: 0
-  ArrowSound: {fileID: 685233580}
+  ArrowSound: {fileID: 88134034}
 --- !u!82 &88134034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1901,7 +1901,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88134029}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 099fa77acb200844b8570d656b25f2b0, type: 3}
@@ -25673,67 +25673,6 @@ Transform:
   - {fileID: 1112517849}
   m_Father: {fileID: 725179375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &532897267
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -101319730019026422, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 099fa77acb200844b8570d656b25f2b0, type: 3}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -464.5068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.7158484
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.53814423
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2752386216445327565, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3276826137582887543, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-      propertyPath: m_Name
-      value: Toothpick Variant
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
 --- !u!1 &533004561
 GameObject:
   m_ObjectHideFlags: 0
@@ -28041,7 +27980,7 @@ MonoBehaviour:
   maxFruits: 12
   timeToRestart: 3
   fruitCount: 0
-  ArrowSound: {fileID: 685233580}
+  ArrowSound: {fileID: 88134034}
 --- !u!82 &611621329
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28049,7 +27988,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611621324}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 099fa77acb200844b8570d656b25f2b0, type: 3}
@@ -34860,11 +34799,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd04af67f5c91da4d8ae09760f11c370, type: 3}
---- !u!82 &685233580 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: -101319730019026422, guid: 23a5188fb11964d45a4e0e99955a5446, type: 3}
-  m_PrefabInstance: {fileID: 532897267}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &685899054
 GameObject:
   m_ObjectHideFlags: 0
@@ -44303,6 +44237,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 142620405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &936322962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 936322964}
+  - component: {fileID: 936322963}
+  m_Layer: 0
+  m_Name: ArrowTrigger
+  m_TagString: Arrows
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &936322963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936322962}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.073029, y: 10.812863, z: 30.324404}
+  m_Center: {x: -3.7307587, y: -4.9064317, z: 14.662202}
+--- !u!4 &936322964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936322962}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -443.343, y: 8.96, z: -13.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &937197175
 GameObject:
   m_ObjectHideFlags: 0
@@ -50882,7 +50869,7 @@ MonoBehaviour:
   maxFruits: 12
   timeToRestart: 3
   fruitCount: 0
-  ArrowSound: {fileID: 685233580}
+  ArrowSound: {fileID: 88134034}
 --- !u!82 &1012219355
 AudioSource:
   m_ObjectHideFlags: 0
@@ -50890,7 +50877,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012219350}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 099fa77acb200844b8570d656b25f2b0, type: 3}
@@ -52540,7 +52527,7 @@ Transform:
   m_GameObject: {fileID: 1050977012}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7201737, z: -0, w: 0.6937939}
-  m_LocalPosition: {x: -477.7, y: 3.355, z: -21.9}
+  m_LocalPosition: {x: -433.9, y: 3.355, z: 22.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53532,7 +53519,7 @@ MonoBehaviour:
   maxFruits: 12
   timeToRestart: 3
   fruitCount: 0
-  ArrowSound: {fileID: 685233580}
+  ArrowSound: {fileID: 88134034}
 --- !u!82 &1067457493
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53540,7 +53527,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067457488}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 099fa77acb200844b8570d656b25f2b0, type: 3}
@@ -119876,7 +119863,7 @@ MonoBehaviour:
   maxFruits: 12
   timeToRestart: 3
   fruitCount: 0
-  ArrowSound: {fileID: 685233580}
+  ArrowSound: {fileID: 88134034}
 --- !u!82 &1960059425
 AudioSource:
   m_ObjectHideFlags: 0
@@ -119884,7 +119871,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960059420}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 099fa77acb200844b8570d656b25f2b0, type: 3}
@@ -157609,4 +157596,4 @@ SceneRoots:
   - {fileID: 206597984}
   - {fileID: 675760058}
   - {fileID: 1776499284}
-  - {fileID: 532897267}
+  - {fileID: 936322964}

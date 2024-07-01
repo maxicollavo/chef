@@ -32,6 +32,7 @@ TagManager:
   - CheckPoint
   - StartBoss
   - OnDamage
+  - Arrows
   layers:
   - Default
   - TransparentFX

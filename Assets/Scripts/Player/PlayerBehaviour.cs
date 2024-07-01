@@ -250,7 +250,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Death()
     {
-        lava.Play();
         currentLives--;
         if (currentLives <= 0)
         {
@@ -372,9 +371,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Dead"))
         {
+            lava.Play();
             Death();
         }
-
+       
         if (other.CompareTag("TriggerWin"))
         {
             SceneManager.LoadScene("WinScene");
