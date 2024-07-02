@@ -128,7 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf36e07ae130cd046a07d5ebcfe548b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientValue: 1
+  ingredientsReached: {fileID: 3179368499085480435, guid: e9b11c15210bc3c43909e9bc23d4c0be, type: 3}
+  mesh: {fileID: 0}
+  coll: {fileID: 0}
 --- !u!114 &6569181554093037179
 MonoBehaviour:
   m_ObjectHideFlags: 0

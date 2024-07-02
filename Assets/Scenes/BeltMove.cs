@@ -33,6 +33,7 @@ public class BeltMove : MonoBehaviour
             NewPlayerMovement.Instance.onBelts = false;
     }
 
+    
     public void Moving()
     {
         for (int i = 0; i <= OnBelts.Count - 1; i++)
