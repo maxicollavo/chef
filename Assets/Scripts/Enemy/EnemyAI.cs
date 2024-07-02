@@ -33,6 +33,7 @@ public class EnemyAI : MonoBehaviour
     private float cooldownTimer;
     private float shootCooldown = 1f;
 
+    public bool isBoss;
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -65,6 +66,17 @@ public class EnemyAI : MonoBehaviour
         {
             cooldownTimer -= Time.deltaTime;
         }
+        if (isBoss)
+        {
+            Attack();
+            
+        }
+        else 
+        EnemyState();
+    }
+
+    void EnemyState()
+    {
 
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -83,7 +95,6 @@ public class EnemyAI : MonoBehaviour
             Patrolling();
         }
     }
-
     private GameObject CreateBullet()
     {
         var bullet = Instantiate(enemyBulletPrefab);

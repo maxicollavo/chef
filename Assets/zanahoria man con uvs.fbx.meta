@@ -3,7 +3,17 @@ guid: c8a71a40d2dd5c4468f13ef4d9264363
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cuerpo
+    second: {fileID: 2100000, guid: acfdb36cca4439946b523abc1db1e2ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: piernas
+    second: {fileID: 2100000, guid: b9df92a710eb74442b836432cbcb7f1d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

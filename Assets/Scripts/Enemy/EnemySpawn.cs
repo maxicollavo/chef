@@ -43,7 +43,6 @@ public class EnemySpawn : MonoBehaviour
                 enemy = Instantiate(objectToSpawn, transform.position, transform.rotation);
                 GameManager.Instance.enemies.Add(enemy);
                 var eai = enemy.GetComponent<EnemyAI>();
-                eai.target = target;
                 eai.Waypoints = waypoints;
 
                 yield return spawnInterval;

@@ -49,9 +49,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (onMinigame)
-            canAttack = false;
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             canAttack = !canAttack;
