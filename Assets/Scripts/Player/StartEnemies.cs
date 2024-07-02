@@ -14,6 +14,10 @@ public class StartEnemies : MonoBehaviour
     [SerializeField] GameObject boss;
     [SerializeField] GameObject lever;
 
+    [SerializeField] GameObject findLever;
+    [SerializeField] GameObject fPick;
+    [SerializeField] GameObject factivate;
+
     [SerializeField] GameObject readyText;
     [SerializeField] GameObject notReadyText;
     [SerializeField] AudioSource enemiesDone;
@@ -89,8 +93,10 @@ public class StartEnemies : MonoBehaviour
 
         if (other.CompareTag("Lever"))
         {
+            fPick.SetActive(true);
             if (Input.GetKeyDown(KeyCode.F))
             {
+                fPick.SetActive(false);
                 Debug.Log("Colisiona con palanca");
                 GameManager.Instance.hasLever = true;
                 grabLeverSource.Play();
@@ -101,27 +107,34 @@ public class StartEnemies : MonoBehaviour
 
         if (other.CompareTag("PutLever"))
         {
+            if (GameManager.Instance.leverDone)
+            {
+                return;
+            }
+
             if (!GameManager.Instance.hasLever)
             {
                 //Activar carteles y feedback de que me falta una palanca
+                findLever.SetActive(true);
+                factivate.SetActive(false);
+            }
+            else
+            {
+                factivate.SetActive(true);
+                findLever.SetActive(false);
             }
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (GameManager.Instance.leverDone)
-                {
-                    return;
-                }
-
-                //Activar carteles y feedback de que no tengo palanca
                 Debug.Log("No tienes una palanca");
 
                 if (GameManager.Instance.hasLever)
                 {
+                    factivate.SetActive(false);
+                    findLever.SetActive(false);
                     Debug.Log("Pongo palanca");
                     GameManager.Instance.leverDone = true;
                     putLever.Play();
-                    //Activar carteles y feedback
                     lever.SetActive(true);
                 }
             }
@@ -136,5 +149,17 @@ public class StartEnemies : MonoBehaviour
             notReadyText.SetActive(false);
             readyText.SetActive(false);
         }
+
+        if (other.CompareTag("Lever"))
+        {
+            fPick.SetActive(false);
+        }
+
+        if (other.CompareTag("PutLever"))
+        {
+            factivate.SetActive(false);
+            findLever.SetActive(false);
+        }
+
     }
 }
