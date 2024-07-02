@@ -40,6 +40,10 @@ public class PlayerBehaviour : MonoBehaviour
     public AudioSource SpeedBoostSound;
     public AudioSource lava;
     public AudioSource respawnSound;
+    public AudioSource burnedSound;
+
+    [SerializeField]
+    GameObject firePanel;
 
     [SerializeField]
     GameObject miniGameText;
@@ -113,6 +117,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (fireCoroutine != null)
             {
+                firePanel.SetActive(false);
+                burnedSound.Pause();
                 StopCoroutine(fireCoroutine);
                 fireCoroutine = null;
             }
@@ -366,7 +372,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         while (onFire)
         {
-            health -= 5;
+            firePanel.SetActive(true);
+            health -= 10;
+            burnedSound.Play();
             yield return new WaitForSeconds(1);
         }
     }
@@ -470,6 +478,8 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if(fireCoroutine != null)
             {
+                firePanel.SetActive(false);
+                burnedSound.Pause();
                 StopCoroutine(fireCoroutine);
                 fireCoroutine = null;
             }
