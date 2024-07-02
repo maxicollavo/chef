@@ -16,6 +16,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector3 initialPos;
     private bool isTransitioning;
     public bool checkpoint;
+    public bool cintas;
     public Animator anim;
     private Coroutine fireCoroutine;
 
@@ -27,6 +28,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     [SerializeField]
     Transform checkpointSpawn;
+    [SerializeField]
+    Transform cintasSpawn;
 
     public bool onFire;
     int maxHealth;
@@ -40,6 +43,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     [SerializeField]
     GameObject miniGameText;
+
+    [SerializeField]
+    GameObject menu;
 
     [SerializeField]
     GameObject subtitleText;
@@ -249,8 +255,21 @@ public class PlayerBehaviour : MonoBehaviour
         LeanTween.moveLocalY(text, originalY - 1f, duration).setEaseInBack();
     }
 
-    void Death()
+    public void Suicide()
     {
+        menu.SetActive(false);
+        RelocatePlayer();
+        TopDownCameraChange.changeCam = false;
+        GameManager.Instance.canAttack = !GameManager.Instance.canAttack;
+        GameManager.Instance.menuPressed = !GameManager.Instance.menuPressed;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+    }
+
+    public void Death()
+    {
+        //GameManager.Instance.canAttack = true;
         currentLives--;
         if (currentLives <= 0)
         {
@@ -260,14 +279,14 @@ public class PlayerBehaviour : MonoBehaviour
         }
         health = maxHealth;
         RelocatePlayer();
-        ResetEnemiesStats();
+        //ResetEnemiesStats();
         TopDownCameraChange.changeCam = false;
     }
 
     private void ResetEnemiesStats()
     {
         foreach (var enemy in GameManager.Instance.enemies)
-        {
+        { 
             var beh = enemy.GetComponent<EnemyBehaviour>();
             beh.health = beh.maxHealth;
             beh.LifeBar.value = beh.health;
@@ -287,6 +306,10 @@ public class PlayerBehaviour : MonoBehaviour
         if (checkpoint)
         {
             transform.position = checkpointSpawn.position;
+        }
+        else if (cintas)
+        {
+            transform.position = cintasSpawn.position;
         }
         else
         {
@@ -393,6 +416,11 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("CheckPoint"))
         {
             checkpoint = true;
+        }
+
+        if (other.CompareTag("CintasCheckpoint"))
+        {
+            cintas = true;
         }
 
         if (other.CompareTag("OnDamage"))

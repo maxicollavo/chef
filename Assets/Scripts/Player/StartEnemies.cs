@@ -10,6 +10,7 @@ public class StartEnemies : MonoBehaviour
 
     [SerializeField] GameObject ingredientCanva;
     [SerializeField] GameObject subtitleCanva;
+    [SerializeField] GameObject limitGoBack;
     [SerializeField] GameObject boss;
 
     [SerializeField] GameObject readyText;
@@ -18,7 +19,6 @@ public class StartEnemies : MonoBehaviour
 
     [SerializeField] AudioSource grabSource;
     private bool isDone;
-    private bool isKeyPressed;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,6 +41,7 @@ public class StartEnemies : MonoBehaviour
         if (other.CompareTag("StartBoss"))
         {
             GameManager.Instance.onBoss = true;
+            limitGoBack.SetActive(true);
             boss.SetActive(true);
             other.gameObject.SetActive(false);
         }
@@ -71,6 +72,7 @@ public class StartEnemies : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F) && !isDone)
                 {
                     enemiesDone.Play();
+                    GameManager.Instance.readyToInstantiate = false;
                     GameManager.Instance.ingredientReady = true;
                     isDone = true;
                     readyText.SetActive(false);

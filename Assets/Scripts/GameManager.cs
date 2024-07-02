@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.Register(GameEventTypes.OnRestart, Restart);
         hasRecipeBook = true;
         bossAlive = true;
+        ingredientCount = 0;
     }
 
     private void OnDestroy()

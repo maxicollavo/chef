@@ -33,6 +33,7 @@ TagManager:
   - StartBoss
   - OnDamage
   - Arrows
+  - CintasCheckpoint
   layers:
   - Default
   - TransparentFX

@@ -8,6 +8,8 @@ public class IngredientPickUp : MonoBehaviour
     private int ingredientValue = 1;
 
     [SerializeField] AudioSource ingredientsReached;
+    [SerializeField] MeshRenderer mesh;
+    [SerializeField] BoxCollider coll;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,7 +23,6 @@ public class IngredientPickUp : MonoBehaviour
 
             else if (GameManager.Instance.ingredientCount == 10)
             {
-                Hide();
                 StartCoroutine(Sound());
             }
         }
@@ -29,13 +30,14 @@ public class IngredientPickUp : MonoBehaviour
 
     private void Hide()
     {
-        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
-        gameObject.GetComponentInChildren<BoxCollider>().enabled = false;
+        mesh.enabled = false;
+        coll.enabled = false;
     }
 
     private IEnumerator Sound()
     {
         ingredientsReached.Play();
+        Hide();
         yield return new WaitUntil(() => !ingredientsReached.isPlaying);
         Destroy(gameObject);
     }

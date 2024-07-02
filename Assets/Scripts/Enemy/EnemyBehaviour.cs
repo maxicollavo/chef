@@ -34,8 +34,10 @@ public class EnemyBehaviour : MonoBehaviour
             if (nav == null)
                 nav = GetComponent<NavMeshAgent>();
 
-            ai.enabled = false;
-            nav.enabled = false;
+            if (ai != null)
+                ai.enabled = false;
+            if (nav != null)
+                nav.enabled = false;
 
             anim.SetTrigger("OnDie");
             EventManager.Instance.Dispatch(GameEventTypes.OnConf, this, EventArgs.Empty);

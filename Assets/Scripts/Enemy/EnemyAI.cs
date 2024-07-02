@@ -69,7 +69,7 @@ public class EnemyAI : MonoBehaviour
         if (isBoss)
         {
             Attack();
-            
+            enemy.SetBool("IsBoss", true);
         }
         else 
         EnemyState();
@@ -77,23 +77,24 @@ public class EnemyAI : MonoBehaviour
 
     void EnemyState()
     {
-
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (playerInSightRange && !playerInAttackRange)
+        if (!playerInSightRange && !playerInAttackRange)
+        {
+            Patrolling();
+        }
+
+        else if (playerInSightRange && !playerInAttackRange)
         {
             Chase();
         }
 
-        if (playerInSightRange && playerInAttackRange)
+        else if (playerInSightRange && playerInAttackRange)
         {
             Attack();
         }
-        else if (!playerInSightRange && !playerInAttackRange)
-        {
-            Patrolling();
-        }
+        
     }
     private GameObject CreateBullet()
     {
@@ -152,7 +153,6 @@ public class EnemyAI : MonoBehaviour
             currentWaypointIndex = UnityEngine.Random.Range(0, Waypoints.Count);
             agent.SetDestination(Waypoints[currentWaypointIndex].position);
         }
-        
     }
     private void OnTriggerEnter(Collider other)
     {
