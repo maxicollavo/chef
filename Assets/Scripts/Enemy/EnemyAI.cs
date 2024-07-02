@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour
     private float shootCooldown = 1f;
 
     public bool isBoss;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();

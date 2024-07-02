@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishAnim : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class FinishAnim : MonoBehaviour
 
     public void DestroyAnim()
     {
+        if (ai.isBoss)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+
         Destroy(transform.parent.gameObject);
     }
 
