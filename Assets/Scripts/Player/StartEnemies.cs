@@ -12,6 +12,7 @@ public class StartEnemies : MonoBehaviour
     [SerializeField] GameObject subtitleCanva;
     [SerializeField] GameObject limitGoBack;
     [SerializeField] GameObject boss;
+    [SerializeField] GameObject lever;
 
     [SerializeField] GameObject readyText;
     [SerializeField] GameObject notReadyText;
@@ -81,6 +82,45 @@ public class StartEnemies : MonoBehaviour
             else
             {
                 notReadyText.SetActive(true);
+            }
+        }
+
+        if (other.CompareTag("Lever"))
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("Colisiona con palanca");
+                GameManager.Instance.hasLever = true;
+                //Activar carteles y feedback
+                Destroy(other.transform.parent.gameObject);
+            }
+        }
+
+        if (other.CompareTag("PutLever"))
+        {
+            if (!GameManager.Instance.hasLever)
+            {
+                //Activar carteles y feedback de que me falta una palanca
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (GameManager.Instance.leverDone)
+                {
+                    return;
+                    Debug.Log("Palanca animada");
+                }
+
+                //Activar carteles y feedback de que no tengo palanca
+                Debug.Log("No tienes una palanca");
+
+                if (GameManager.Instance.hasLever)
+                {
+                    Debug.Log("Pongo palanca");
+                    GameManager.Instance.leverDone = true;
+                    //Activar carteles y feedback
+                    lever.SetActive(true);
+                }
             }
         }
     }

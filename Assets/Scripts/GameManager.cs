@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public bool onBoss;
     public bool goodChef;
     public bool bossAlive;
+    public bool hasLever;
+    public bool leverDone;
 
     public bool enemyAttacked;
     public bool onMinigame;
