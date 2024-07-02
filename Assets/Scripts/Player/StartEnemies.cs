@@ -19,6 +19,8 @@ public class StartEnemies : MonoBehaviour
     [SerializeField] AudioSource enemiesDone;
 
     [SerializeField] AudioSource grabSource;
+    [SerializeField] AudioSource grabLeverSource;
+    [SerializeField] AudioSource putLever;
     private bool isDone;
 
     private void OnTriggerEnter(Collider other)
@@ -91,6 +93,7 @@ public class StartEnemies : MonoBehaviour
             {
                 Debug.Log("Colisiona con palanca");
                 GameManager.Instance.hasLever = true;
+                grabLeverSource.Play();
                 //Activar carteles y feedback
                 Destroy(other.transform.parent.gameObject);
             }
@@ -108,7 +111,6 @@ public class StartEnemies : MonoBehaviour
                 if (GameManager.Instance.leverDone)
                 {
                     return;
-                    Debug.Log("Palanca animada");
                 }
 
                 //Activar carteles y feedback de que no tengo palanca
@@ -118,6 +120,7 @@ public class StartEnemies : MonoBehaviour
                 {
                     Debug.Log("Pongo palanca");
                     GameManager.Instance.leverDone = true;
+                    putLever.Play();
                     //Activar carteles y feedback
                     lever.SetActive(true);
                 }
