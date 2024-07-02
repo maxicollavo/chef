@@ -69,7 +69,7 @@ public class StartEnemies : MonoBehaviour
                 if (isDone)
                 {
                     ingredientCanva.SetActive(false);
-                    subtitleCanva.SetActive(false);
+                    //subtitleCanva.SetActive(false);
                     return;
                 }
 
@@ -79,6 +79,7 @@ public class StartEnemies : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F) && !isDone)
                 {
                     enemiesDone.Play();
+                    subtitleCanva.SetActive(true);
                     GameManager.Instance.readyToInstantiate = false;
                     GameManager.Instance.ingredientReady = true;
                     isDone = true;
@@ -145,7 +146,7 @@ public class StartEnemies : MonoBehaviour
     {
         if (other.CompareTag("TradeStation"))
         {
-            subtitleCanva.SetActive(false);
+            //subtitleCanva.SetActive(false);
             notReadyText.SetActive(false);
             readyText.SetActive(false);
         }
