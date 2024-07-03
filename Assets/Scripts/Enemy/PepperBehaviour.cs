@@ -7,6 +7,10 @@ public class PepperBehaviour : EnemyAI
 {
      int BombDMG = 50;
     public AudioSource BombAudio;
+    public ParticleSystem BombParticles;
+    public ParticleSystem Flash2Particles;
+    public ParticleSystem SmokeParticles;
+    public ParticleSystem FlashParticles;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -22,6 +26,11 @@ public class PepperBehaviour : EnemyAI
           Debug.Log("Entro a timer");
           BombAudio.Play();
           yield return new WaitForSeconds(2);
+          BombParticles.Play();
+          Flash2Particles.Play();
+          FlashParticles.Play();
+          SmokeParticles.Play();
+          yield return new WaitForSeconds(0.1f);
             PlayerBehaviour _pb = other.transform.parent.GetComponent<PlayerBehaviour>();
              _pb.TakeDamage(BombDMG);
         Destroy(this.gameObject);
